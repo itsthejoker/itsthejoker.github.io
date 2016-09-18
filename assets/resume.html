@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+  /*
+   * Copyright 2013 Christophe-Marie Duquesne <chmd@chmd.fr>
+   *
+   * CSS for making a resume with pandoc. Inspired by moderncv.
+   *
+   * This CSS document is delivered to you under the CC BY-SA 3.0 License.
+   * https://creativecommons.org/licenses/by-sa/3.0/deed.en_US
+   */
+  
+  /* Whole document */
+  body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      width: 800px;
+      margin: auto;
+      background: #FFFFFF;
+      padding: 10px 10px 10px 10px;
+  }
+  
+  /* Title of the resume */
+  h1 {
+      font-size: 55px;
+      color: #757575;
+      text-align:center;
+      margin-bottom:15px;
+  }
+  h1:hover {
+      background-color: #757575;
+      color: #FFFFFF;
+      text-shadow: 1px 1px 1px #333;
+  }
+  
+  /* Titles of categories */
+  h2 {
+      /* This is called "sectioncolor" in the ConTeXt stylesheet. */
+      color: #007acc;
+  }
+  /* There is a bar just before each category */
+  h2:before {
+      content: "";
+      display: inline-block;
+      margin-right:1%;
+      width: 16%;
+      height: 10px;
+      /* This is called "rulecolor" in the ConTeXt stylesheet. */
+      background-color: #66ccff;
+  }
+  h2:hover {
+      background-color: #006bb3;
+      color: #FFFFFF;
+      text-shadow: 1px 1px 1px #333;
+  }
+  
+  /* Definitions */
+  dt {
+      float: left;
+      clear: left;
+      width: 17%;
+      /*font-weight: bold;*/
+  }
+  dd {
+      margin-left: 17%;
+  }
+  p {
+      margin-top:0;
+      margin-bottom:7px;
+  }
+  
+  /* Blockquotes */
+  blockquote {
+      text-align: center
+  }
+  
+  /* Links */
+  a {
+      text-decoration: none;
+      color: #006bb3;
+  }
+  a:hover, a:active {
+      background-color: #006bb3;
+      color: #FFFFFF;
+      text-decoration: none;
+      text-shadow: 1px 1px 1px #333;
+  }
+  
+  /* Horizontal separators */
+  hr {
+      color: #A6A6A6;
+  }
+  
+  table {
+      width: 100%;
+  }
+  </style>
+</head>
+<body>
+<h1 id="joe-kaufeld">Joe Kaufeld</h1>
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">919 N Pennsylvania St., Apt 103</td>
+<td align="right"><script type="text/javascript">
+<!--
+h='&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#106;&#x6f;&#x65;&#46;&#x6b;&#x61;&#x75;&#102;&#x65;&#108;&#100;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#106;&#x6f;&#x65;&#46;&#x6b;&#x61;&#x75;&#102;&#x65;&#108;&#100;&#32;&#x61;&#116;&#32;&#x67;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript></td>
+</tr>
+<tr class="even">
+<td align="left">Indianapolis, IN 46204</td>
+<td align="right"><a href="https://github.com/itsthejoker">github.com/itsthejoker</a></td>
+</tr>
+<tr class="odd">
+<td align="left">USA</td>
+<td align="right"><a href="https://www.linkedin.com/in/joe-kaufeld-46567a15">LinkedIn</a></td>
+</tr>
+<tr class="even">
+<td align="left">(260)-704-7791</td>
+<td align="right"><a href="https://twitter.com/joekaufeld">@joekaufeld</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="education">education</h2>
+<dl>
+<dt>2010 - 2014</dt>
+<dd><p><strong>BS, Information Systems</strong>; Ball State University</p>
+<ul>
+<li>Built 115 node Beowulf cluster from unused university desktops</li>
+<li>Designed and wrote distributed NTLM hash cracker in Python using HTTP-based communication</li>
+<li>Published research paper, <em>Cluster Processing for Password Audits</em>, 2014</li>
+</ul>
+</dd>
+</dl>
+<h2 id="experience">experience</h2>
+<p><strong>SmartFile</strong> - Associate Software Engineer (2016)</p>
+<p>Wrote features for and maintained FTP-based Django application with Redis and Memcached</p>
+<ul>
+<li><p>Designed and implemented realtime process to update directory sizes</p></li>
+<li><p>Refactored core of the audit messaging system, resulting in a modular structure and a reduction by 400 lines</p></li>
+</ul>
+<p><strong>Spectrum Techology</strong> - Tier 1-3 Tech Support (2015-2016)</p>
+<p>Performed phone and in-person tech support for third-party clients experiencing both hardware and software failures</p>
+<ul>
+<li><p>Administrated Windows Server 2008-2012 R2; Windows 7, 8, and 10; OSX 10.6.4+, RHEL 5, 6, and 7</p></li>
+<li><p>Assisted with design and implementation of specialized solutions designed to suit clients’ needs</p></li>
+<li><p>Installed, managed, and configured equipment as needed</p></li>
+</ul>
+<p><strong>H.H.Gregg</strong> - Tier 2-3 Tech Support (2014 - 2015)</p>
+<p>Performed tier 2-3 support for various IT-related technical failures for ~275 locations</p>
+<ul>
+<li><p>Maintained information repository for technical issues</p></li>
+<li><p>Designed and implemented workflow for maintenance of 650 store scanners</p></li>
+<li><p>Created automation process for ticket software to speed IT requests</p></li>
+</ul>
+<h2 id="technical-experience">technical experience</h2>
+<dl>
+<dt>Programming Languages</dt>
+<dd><p><strong>Python</strong> - 5 years</p>
+<p>My favorite language for work and play, I have a few personal projects I'm proud of:</p>
+<ul>
+<li><p>Pure Python implementation of original Pokemon Blue game (in progress)</p></li>
+<li><p>Media organizing script that recognizes file types, identifies content, and places files in correct folders</p></li>
+<li><p>Reddit spam fighter script to automatically ban new spam domains during the spam siege of late 2015</p></li>
+</ul>
+</dd>
+<dd><p><strong>Bash</strong> - 3 years Proficient in basic scripting and automation</p>
+</dd>
+<dd><p>Basic knowledge of <strong>Java</strong>, <strong>Ruby</strong>, and <strong>BASIC</strong>.</p>
+</dd>
+<dt>Software</dt>
+<dd>Redis, Django, CherryPy, Docker, Kivy, MySQL, MS Exchange, Jenkins, git, many ticket systems
+</dd>
+</dl>
+<h2 id="miscellanea">miscellanea</h2>
+<ul>
+<li><p>Languages:</p>
+<ul>
+<li>English (native speaker)</li>
+<li>Italian (beginner)</li>
+</ul></li>
+<li><p>Microcomputer experience: <strong>Raspberry Pi</strong>, <strong>Intel Edison</strong>, <strong>ODROID U3</strong>, <strong>ODROID W</strong>; <strong>PixieBoard</strong></p></li>
+</ul>
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><script type="text/javascript">
+<!--
+h='&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#106;&#x6f;&#x65;&#46;&#x6b;&#x61;&#x75;&#102;&#x65;&#108;&#100;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#106;&#x6f;&#x65;&#46;&#x6b;&#x61;&#x75;&#102;&#x65;&#108;&#100;&#32;&#x61;&#116;&#32;&#x67;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript></td>
+<td align="right">(260)-704-7791</td>
+</tr>
+<tr class="even">
+<td align="left">919 N Pennsylvania St., Apt 103</td>
+<td align="right">Indianapolis, IN 46204 USA</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
