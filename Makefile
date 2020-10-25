@@ -2,7 +2,7 @@
 
 .PHONY: all deploy clean build
 
-all: build dist
+all: dist build
 
 dist:
 	git worktree add build gh-pages
