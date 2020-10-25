@@ -1,6 +1,6 @@
 # https://gist.github.com/cobyism/4730490#gistcomment-2375522
 
-.PHONY: all deploy clean
+.PHONY: all deploy clean build
 
 all: build dist
 
