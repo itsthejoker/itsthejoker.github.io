@@ -1,0 +1,40 @@
+body {
+    background: #1a1a1a;
+    color: white;
+}
+
+.modal {
+    color: black
+}
+
+.primary {
+    height: 100vh;
+}
+
+.inline-center {
+    display: flex;
+    align-items: center;
+}
+
+.vcenter {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.bloom {
+    box-shadow: 0 0 100px white;
+    border-radius: 50%;
+}
+
+.fa-twitter, .fa-github, .fa-envelope, .fa-linkedin-in {
+  color: white;
+}
+
+.middle-ish {
+    bottom: auto;
+    top: 40%;
+}
