@@ -1,0 +1,17 @@
+<head>
+    <title>Joe Kaufeld</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <script src="bootstrap.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+<div class="container primary">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+
+<script src="https://kit.fontawesome.com/34699ec1cb.js" crossorigin="anonymous"></script>
+<script src="emailmagic.js" type="text/javascript"></script>
