@@ -17,12 +17,30 @@ body {
 }
 
 .vcenter {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 575px) {
+    .vcenter {
+        margin: 0;
+        position: absolute;
+        top: 55%;
+        left: 50%
+    }
+}
+
+@media screen and (max-height: 650px) {
+    .vcenter {
+        margin: 0;
+        position: absolute;
+        top: 85%;
+        left: 50%
+    }
 }
 
 .bloom {
@@ -31,7 +49,7 @@ body {
 }
 
 .fa-twitter, .fa-github, .fa-envelope, .fa-linkedin-in {
-  color: white;
+    color: white;
 }
 
 .middle-ish {
