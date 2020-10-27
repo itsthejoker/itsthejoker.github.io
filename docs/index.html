@@ -173,23 +173,30 @@
             <div class="row">
                 <div class="col-lg-6 py-3 inline-center d-flex justify-content-center">
                     <div role="region" aria-label="Picture of the author.">
-                        <img class="img-fluid bloom"
-                             src="images/joe_and_hedy.webp"
-                             srcset="images/joe_and_hedy_200.webp 200w, images/joe_and_hedy_300.webp 300w, images/joe_and_hedy_450.webp 450w, images/joe_and_hedy.webp 600w"
-                             sizes="200w, 300w, 600vw"
-                             alt="A smiling Joe Kaufeld looking at the camera with a small black cat perched on his shoulder."
-                             width="600"
-                        >
+                        <picture>
+                            <source
+                                    type="image/webp"
+                                    sizes="200w, 300w, 600vw"
+                                    srcset="images/joe_and_hedy_200.webp 200w, images/joe_and_hedy_300.webp 300w, images/joe_and_hedy_450.webp 450w, images/joe_and_hedy.webp 600w"
+                            >
+                            <img class="img-fluid bloom"
+                                 src="images/joe_and_hedy.png"
+                                 srcset="images/joe_and_hedy_200.png 200w, images/joe_and_hedy_300.png 300w, images/joe_and_hedy_450.png 450w, images/joe_and_hedy.png 600w"
+                                 sizes="200w, 300w, 600vw"
+                                 alt="A smiling Joe Kaufeld looking at the camera with a small black cat perched on his shoulder."
+                                 width="600"
+                            >
+                        </picture>
                     </div>
                 </div>
                 <div class="col-lg-6 inline-center">
                     <div class="container" role="region" aria-label="Contact information and blurb.">
                         <div class="row">
                             <div class="col">
-                                <h4 class="text-center mb-4">
+                                <h1 class="text-center mb-4">
                                     Educator, developer, and accessibility nerd with a desire to leave the
                                     world better than I found it.
-                                </h4>
+                                </h1>
                             </div>
                         </div>
                         <div class="row mb-4">
