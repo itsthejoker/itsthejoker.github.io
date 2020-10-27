@@ -1,14 +1,15 @@
-<div class="modal fade" id="projectModal" role="dialog" tabindex="-1" aria-labelledby="projectModal" aria-hidden="true"
-     aria-describedby="Projects that Joe has done over the years, completed or otherwise.">
+<div class="modal fade" id="projectModal" role="dialog" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable ">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Projects I've done or contributed to!</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <strong>Grafeas Group, Ltd.</strong> -
-                <a href="https://grafeas.org" rel="nofollow" target="_blank">
+                <a href="https://grafeas.org" rel="noreferrer" target="_blank">
                     grafeas.org
                 </a>
                 <p>
@@ -24,7 +25,7 @@
                 </p>
                 <hr>
                 <strong>TranscribersOfReddit</strong> -
-                <a href="https://reddit.com/r/transcribersofreddit" rel="nofollow" target="_blank">
+                <a href="https://reddit.com/r/transcribersofreddit" rel="noreferrer" target="_blank">
                     reddit.com/r/TranscribersOfReddit
                 </a>
                 <p>
@@ -35,7 +36,7 @@
                 </p>
                 <hr>
                 <strong>FilamentColors.xyz</strong> -
-                <a href="https://filamentcolors.xyz" target="_blank">
+                <a href="https://filamentcolors.xyz" target="_blank" rel="noopener">
                     FilamentColors.xyz
                 </a>
                 <p>
@@ -51,7 +52,7 @@
                 </p>
                 <hr>
                 <strong>EmailMagic</strong> -
-                <a href="https://github.com/itsthejoker/emailmagic/" rel="nofollow" target="_blank">
+                <a href="https://github.com/itsthejoker/emailmagic/" rel="noreferrer" target="_blank">
                     See it on GitHub!
                 </a>
                 <p>

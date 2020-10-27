@@ -10,15 +10,19 @@
     <div class="col">
         <div class="vcenter container py-5">
             <div class="row">
-                <div class="col-lg-6 py-3 inline-center">
-                    <img class="img-responsive bloom mx-auto"
-                         src="images/joe_and_hedy.png"
-                         alt="A smiling Joe Kaufeld looking at the camera with a small black cat perched on his shoulder."
-                         width="450"
-                    >
+                <div class="col-lg-6 py-3 inline-center d-flex justify-content-center">
+                    <div role="region" aria-label="Picture of the author.">
+                        <img class="img-fluid bloom"
+                             src="images/joe_and_hedy.webp"
+                             srcset="images/joe_and_hedy_200.webp 200w, images/joe_and_hedy_300.webp 300w, images/joe_and_hedy_450.webp 450w, images/joe_and_hedy.webp 600w"
+                             sizes="200w, 300w, 600vw"
+                             alt="A smiling Joe Kaufeld looking at the camera with a small black cat perched on his shoulder."
+                             width="600"
+                        >
+                    </div>
                 </div>
                 <div class="col-lg-6 inline-center">
-                    <div class="container">
+                    <div class="container" role="region" aria-label="Contact information and blurb.">
                         <div class="row">
                             <div class="col">
                                 <h4 class="text-center mb-4">
@@ -31,28 +35,31 @@
                             <div class="col-0 col-md-2"></div>
                             <div class="col-3 col-md-2">
                                 <div class="d-flex justify-content-center">
-                                    <a href="https://github.com/itsthejoker" target="_blank">
+                                    <a href="https://github.com/itsthejoker" target="_blank" rel="noreferrer"
+                                       aria-label="Check my work out on GitHub!">
                                         <i class="fab fa-github fa-3x"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="col-3 col-md-2">
                                 <div class="d-flex justify-content-center">
-                                    <a href="https://www.linkedin.com/in/joe-kaufeld" target="_blank">
+                                    <a href="https://www.linkedin.com/in/joe-kaufeld" target="_blank" rel="noreferrer"
+                                       aria-label="Check out my LinkedIn profile!">
                                         <i class="fab fa-linkedin-in fa-3x"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="col-3 col-md-2">
                                 <div class="d-flex justify-content-center">
-                                    <a href="https://twitter.com/joekaufeld" target="_blank">
+                                    <a href="https://twitter.com/joekaufeld" target="_blank" rel="noreferrer"
+                                       aria-label="Find me on Twitter!">
                                         <i class="fab fa-twitter fa-3x"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="col-3 col-md-2">
                                 <div class="d-flex justify-content-center">
-                                    <a href="mailto:joe.kaufeld@gmail.com">
+                                    <a href="mailto:joe.kaufeld@gmail.com" aria-label="Send me an email!">
                                         <i class="fas fa-envelope fa-3x"></i>
                                     </a>
                                 </div>
@@ -62,7 +69,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="d-flex mb-2 justify-content-center">
-                                    <button type="button" class="btn btn-block btn-outline-secondary"
+                                    <button type="button" class="btn btn-block btn-secondary"
                                             data-toggle="modal"
                                             data-target="#projectModal">
                                         Projects
@@ -71,7 +78,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="d-flex mb-2 justify-content-center">
-                                    <button type="button" class="btn btn-block btn-outline-secondary"
+                                    <button type="button" class="btn btn-block btn-secondary"
                                             data-toggle="modal"
                                             data-target="#mediaModal">
                                         Media

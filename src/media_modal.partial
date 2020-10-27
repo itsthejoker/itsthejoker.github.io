@@ -1,17 +1,18 @@
-<div class="modal fade" id="mediaModal" tabindex="-1" role="dialog" aria-labelledby="mediaModal" aria-hidden="true"
-     aria-describedby="Interviews and media that Joe has appeared in.">
+<div class="modal fade" id="mediaModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="mediaModalLabel">Presentations or interviews!</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 🌟 <strong>2020-02-23</strong> -
                 <a
                         href="https://www.wired.co.uk/article/transcribers-of-reddit"
                         target="_blank"
-                        rel="nofollow"
+                        rel="noreferrer"
                 >WIRED UK - Interview about Grafeas and TranscribersOfReddit.</a>
                 <p class="pl-3">
                     Interview from Alex Lee of WIRED UK about Grafeas, TranscribersOfReddit, and
@@ -22,7 +23,7 @@
                 <a
                         href="http://www.makersontap.com/e/mot-076-joe-the-filament-librarian/"
                         target="_blank"
-                        rel="nofollow"
+                        rel="noreferrer"
                 >Makers On Tap Podcast</a>
                 <p class="pl-3">
                     Makers On Tap is a podcast by makers, for makers - we chatted about filamentcolors.xyz,
@@ -33,7 +34,7 @@
                 <a
                         href="https://faradaytechcafe.podbean.com/e/episode-15-part-2-accessibility-on-the-web-and-in-coding-schools-with-joe-kaufeld/"
                         target="_blank"
-                        rel="nofollow"
+                        rel="noreferrer"
                 >Faraday Tech Cafe Podcast, Part 2</a>
                 <p class="pl-3">
                     Hosted by Gwen Faraday, this is part two of a long-form interview covers some of my
@@ -44,7 +45,7 @@
                 <a
                         href="https://faradaytechcafe.podbean.com/e/episode-15-internet-accessibility-for-developers-with-joe-kaufeld/"
                         target="_blank"
-                        rel="nofollow"
+                        rel="noreferrer"
                 >Faraday Tech Cafe Podcast, Part 1</a>
                 <p class="pl-3">
                     Hosted by Gwen Faraday, this is part one of a long-form interview covers some of my
@@ -55,7 +56,7 @@
                 <a
                         href="https://www.youtube.com/watch?v=EzypNyAK3Xc&feature=youtu.be&t=1327"
                         target="_blank"
-                        rel="nofollow"
+                        rel="noreferrer"
                 >VRRF 2020 // Virtual Reprap Festival</a>
                 <p class="pl-3">
                     Since the Midwest Reprap Festival (MRRF) was cancelled due to COVID, it happened over
@@ -66,7 +67,7 @@
                 <a
                         href="https://www.wired.com/story/online-altruists-are-making-reddit-more-accessible/"
                         target="_blank"
-                        rel="nofollow"
+                        rel="noreferrer"
                 >WIRED - Interview about Grafeas and TranscribersOfReddit.</a>
                 <p class="pl-3">
                     This is the same article from WIRED UK, but syndicated to the main site!
