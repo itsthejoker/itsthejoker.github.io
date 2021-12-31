@@ -45,3 +45,4 @@ for static_file in static:
         f.write(template_str)
 
 copy_and_overwrite("images", "docs/images")
+print("All done!")
