@@ -3,9 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Projects I've done or contributed to!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <strong>Grafeas Group, Ltd.</strong> -
@@ -14,7 +12,7 @@
                 </a>
                 <p>
                     A small international nonprofit that I cofounded with James Coe, this registered 501(c)3
-                    in the US has over 3500 volunteers and aims to increase accessibility on the internet.
+                    in the US has over 5000 volunteers and aims to increase accessibility on the internet.
                     By creating text versions of internet content, everyone has a chance to participate in
                     the discussion. Our volunteers have, at the time of this writing, completed over 110,000
                     transcriptions and descriptions online and through Reddit for those who need them.
@@ -51,6 +49,14 @@
                     visitors per month.
                 </p>
                 <hr>
+                <strong>What Day Is It?</strong> -
+                <a href="https://itsthejoker.github.io/whatdayisit/" rel="noreferrer" target="_blank">
+                    itsthejoker.github.io/whatdayisit/
+                </a>
+                <p>
+                    Do you ever wonder what day it is? Me too. Hopefully this helps!
+                </p>
+                <hr>
                 <strong>EmailMagic</strong> -
                 <a href="https://github.com/itsthejoker/emailmagic/" rel="noreferrer" target="_blank">
                     See it on GitHub!
@@ -61,7 +67,7 @@
                 </p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
