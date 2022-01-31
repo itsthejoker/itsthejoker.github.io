@@ -1,16 +1,17 @@
+#!.venv/bin/python
+
 import glob
 import os
 import sys
 import shutil
+
+from jinja2 import Environment, FileSystemLoader
 
 
 def copy_and_overwrite(from_path, to_path):
     if os.path.exists(to_path):
         shutil.rmtree(to_path)
     shutil.copytree(from_path, to_path)
-
-
-from jinja2 import Environment, FileSystemLoader
 
 if not os.path.exists('docs'):
     os.mkdir('docs')
