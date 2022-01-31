@@ -42,6 +42,9 @@ body {
 }
 
 h1 {
-    /* accessibility guidelines require a H1 tag... but I don't need an H1 size ¯\_(ツ)_/¯ */
+    font-size: 3rem;
+}
+
+h2 {
     font-size: 1.5rem;
 }
