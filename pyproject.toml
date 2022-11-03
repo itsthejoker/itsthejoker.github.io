@@ -2,7 +2,7 @@
 name = "itsthejoker.github.io"
 version = "0.1.0"
 description = ""
-authors = ["Joe Kaufeld <joe@kenzie.academy>"]
+authors = ["Joe Kaufeld <opensource@joekaufeld.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
