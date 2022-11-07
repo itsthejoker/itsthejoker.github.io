@@ -11,15 +11,26 @@
                     grafeas.org
                 </a>
                 <p>
-                    A small international nonprofit that I cofounded with James Coe, this registered 501(c)3
-                    in the US has over 5000 volunteers and aims to increase accessibility on the internet.
+                    A small international nonprofit that I co-founded with James Coe, this registered 501(c)3
+                    in the US has over 5,750 volunteers and aims to increase accessibility on the internet.
                     By creating text versions of internet content, everyone has a chance to participate in
-                    the discussion. Our volunteers have, at the time of this writing, completed over 110,000
+                    the discussion. Our volunteers have, at the time of this writing, completed over 260,000
                     transcriptions and descriptions online and through Reddit for those who need them.
                 </p>
                 <p>
                     It is entirely donation funded and is the sole sponsor for our subreddit / primary operations
                     at TranscribersOfReddit.
+                </p>
+                <hr>
+                <strong>Yarn Calc-Inator</strong> -
+                <a href="https://itsthejoker.github.io/yarncalcinator/" rel="noreferrer" target="_blank">
+                    itsthejoker.github.io/yarncalcinator/
+                </a>
+                <p>
+                    A small site that helps perform basic conversions for yarn -- helpful for interpreting
+                    crochet and knitting patterns across meters and yards. Doesn't go into the more complex
+                    side of dealing with yarn density, but is enough to generally answer the question of
+                    "okay wait seriously how many skeins do I really need for this‽".
                 </p>
                 <hr>
                 <strong>TranscribersOfReddit</strong> -
@@ -28,7 +39,7 @@
                 </a>
                 <p>
                     A mostly automated subreddit, this exercise in gamification, volunteerism, and accessibility
-                    was started in April of 2017. Since then, we have gained volunteers on every continent in the
+                    was started in April 2017. Since then, we have gained volunteers on every continent in the
                     world (including Antarctica!) and have become an important part of the accessibility-related
                     landscape of Reddit.com.
                 </p>
@@ -40,10 +51,10 @@
                 <p>
                     Lots of problems need to be solved, but many problems only get solved when someone is annoyed
                     enough. In this case, the 3D printing hobby has a well-known problem: the plastic filaments
-                    that you buy online <i>might not</i> be the same color that you see online.
+                    that you buy online <em>might not</em> be the same color that you see online.
                 </p>
                 <p>
-                    To address that, I built FilamentColors.xyz, a Django / Bootstrap app that indexes 3D printed
+                    To address that, I built <strong>FilamentColors.xyz</strong>, a Django / Bootstrap app that indexes 3D printed
                     swatches by their color and uses basic color theory to match plastics from different manufacturers
                     together in order to help people plan for projects. At current, the site receives just under 1k
                     visitors per month.
