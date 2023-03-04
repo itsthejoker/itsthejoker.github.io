@@ -14,8 +14,6 @@ tags:
   - perl
 ---
 
-# Title
-
 {{< lead >}}
 Impactful start to the post!
 {{< /lead >}}
