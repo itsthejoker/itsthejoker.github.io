@@ -1,7 +1,6 @@
 ---
 title: "USB-C for Fun and... Nah, Just Fun"
 date: 2023-03-03T21:53:31-05:00
-draft: true
 summary: "The New 3DS has one problem: a proprietary charging cable. Let's stuff a USB-C port into it instead!"
 categories:
   - projects
