@@ -98,3 +98,7 @@ I'd show you the inside of mine, but I'm hesitant to open it again. As it stands
 Would I do this again? No, I don't think so. The entire install took about 3.5 hours for me, and they weren't particularly fun. However, I'm super stoked about the newfound functionality of the console and am looking forward to putting it to the test during some travel later this year.
 
 Here's to our favorite games of today and yesterday! :clinking_glasses:
+
+## Additional Resources
+
+* https://consolemods.org/wiki/3DS:New_3DS_XL_USB-C_Charging_Port_Mod
