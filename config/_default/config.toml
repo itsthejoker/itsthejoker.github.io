@@ -86,7 +86,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   gitRepo = ""
   #  which hash function used for SRI, when empty, no SRI is used
   # ["sha256", "sha384", "sha512", "md5"]
-  fingerprint = "https://github.com/itsthejoker/itsthejoker.github.io/"
+  fingerprint = ""
   #  date format
   dateFormat = "2006-01-02"
   # website title for Open Graph and Twitter Cards
