@@ -1,5 +1,5 @@
 docs:
-	hugo server -D
+	hugo server -D --disableFastRender
 
 build:
 	mkdocs build

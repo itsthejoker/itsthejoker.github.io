@@ -11,9 +11,7 @@ tags:
   - learning
 ---
 
-{{< lead >}}
-What is this 3D printing thing?
-{{< /lead >}}
+## What is this 3D printing thing?
 
 There's a lot of information about 3D printing as a hobby, but what does that all boil down to? What do you need to get started? What do you need to know before bringing a printer into your house? What kinds are there?
 
@@ -38,15 +36,15 @@ You can 3D print almost anything. Here are some examples:
 
 ...there are so many options that you're mostly limited by the physical properties of plastic and your imagination. With that in mind, let's talk about the second question: what is a 3D printer?
 
-{{< alert circle-info >}}
+{{< admonition type=info title="" >}}
 A machine that takes a physical medium (plastic, metal, concrete, chocolate, etc.) and carefully arranges it in a specific shape when guided by a computer.
-{{< /alert >}}
+{{< /admonition >}}
 
 The most common type is one that melts strands of plastic about the diameter of pencil lead into strips the width of a piece of string. Have you ever had a _ball_ of string? Even though the string itself doesn't take up much space, it builds on itself when you have a lot in one place. That's the same concept that most consumer 3D printers operate on.
 
-{{< alert >}}
+{{< admonition type=info title="" >}}
 There are a lot of different options with what type of printer to use and what kind of material to use -- like types of fabric, there are hundreds of choices. For this, we'll only focus on the most common options.
-{{< /alert >}}
+{{< /admonition >}}
 
 ## What You Need
 
@@ -81,9 +79,9 @@ Material for 3D printing, called `filament`, is a very long connected line that 
 * 3mm diameter
     * This is older and not used as much anymore
 
-{{< alert circle-info >}}
+{{< admonition type=tip title="" >}}
 Consumer 3D printing is entirely based in the metric system. Besides the fact that the metric system is very easy to use, 3D printing is heavily rooted in [open source](https://en.wikipedia.org/wiki/Open_source); the first open source 3D printer, the [RepRap](https://reprap.org/wiki/RepRap), was created in Bath, UK, in 2004.
-{{< /alert >}}
+{{< /admonition >}}
 
 The most common, beginner-friendly material to print with is known by its acronym: [PLA](https://en.wikipedia.org/wiki/Polylactic_acid). It's not very expensive, is easy to work with, and makes reasonably strong parts. There are many different options -- [PETG](https://en.wikipedia.org/wiki/Polyethylene_terephthalate#Copolymers) and [ABS](https://en.wikipedia.org/wiki/Acrylonitrile_butadiene_styrene) are also popular, but they usually require some modifications / upgrades and special ventilation and temperature control to use properly.
 

@@ -11,9 +11,7 @@ tags:
   - learning
 ---
 
-{{< lead >}}
-Where in the world does it go?
-{{< /lead >}}
+## Where in the world does it go?
 
 Now that you've made it through [Part 1]({{< ref "posts/intro_to_3d_printing_part_1" >}}), let's take a look at what you need to know about and what you might need to consider before either buying a 3D printer or bringing one into your home. As with every hobby, there's a lot of extra things that aren't written on the box; my goal is that you'll be much better prepared should you jump in with both feet.
 

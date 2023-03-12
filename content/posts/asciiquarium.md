@@ -11,9 +11,7 @@ tags:
   - perl
 ---
 
-{{< lead >}}
-The easiest aquarium you'll ever take care of.
-{{< /lead >}}
+## The easiest aquarium you'll ever take care of.
 
 Sometimes a project just sticks in your head and won't let go; for days, months, or even years. This is the story of one such project.
 
@@ -21,11 +19,7 @@ Sometimes a project just sticks in your head and won't let go; for days, months,
 
 In a previous job as a software developer around 2016, I came across [this script from Kirk Baucom](https://robobunny.com/projects/asciiquarium/html/) called `asciiquarium`. It's a single-file script that animates a lovely ocean scene using only text! Fish swim, a small castle chills out in the corner, and occasionally special events happen (watch for the shark and appearances of Nessie!). I ran it in a small terminal window every day around my normal work, enjoying it simply for being a quick escape from whatever problem I was working on at the time.
 
-{{< figure
-    src="images/asciiquarium/asciiquarium.png"
-    alt="A screenshot of asciiquarium running in a small terminal window."
-    caption="ASCIIQuarium screenshot courtesy of [robobunny.com](https://robobunny.com)"
->}}
+![A screenshot of asciiquarium running in a small terminal window.](images/asciiquarium/asciiquarium.png "ASCIIQuarium screenshot courtesy of [robobunny.com](https://robobunny.com)")
 
 During that time, I had an idea: use a low-power computer, an old display, and a bit of solder to create a permanent display for `asciiquarium` to have my very own digital fish tank that wouldn't need feeding (and had pretty colors)! It took a long time to come to fruition, but I'm incredibly happy with how it turned out. Read on for details!
 
@@ -46,9 +40,9 @@ ASCIIQuarium is a relatively small script written in Perl that only needs a litt
 I want to give a major shout-out to the Raspberry Pi Foundation for their amazing support of old hardware; getting the Pi set up was a breeze by just downloading the latest command-line-only version of Raspbian and flashing it to an SD card using the [new Raspberry Pi Imager](https://www.raspberrypi.org/blog/raspberry-pi-imager-imaging-utility/).
 
 
-{{< alert >}}
+{{< admonition type=note title="LC_LOCALES and You" >}}
 I ran into one issue with LC_LOCALES and other keys not being set correctly; running "raspi-config" and setting the locale information there fixed the problem after rebooting.
-{{< /alert >}}
+{{< /admonition >}}
 
 
 Perl is included in the default of Raspbian, so the only requirements we have are to install the `curses` library (a library that allows us to draw in the terminal) and install the `Term::Animation` package using Perl's CPAN command to actually handle the movements.
@@ -81,9 +75,9 @@ With the USB power in place, only two things remain: securing the Pi to the back
 
 After confirming that it worked as expected, the next step is to pull the SD card and back it up. This installation will be turned on and off by the power plug through a timer, so it's important to make the operating system read-only to guard against corruption. After making it read-only, no changes can be made -- so backing it up prior to performing that operation is critical.
 
-{{< alert skull-crossbones >}}
+{{< admonition type=danger title="Back up your work!" >}}
 Seriously, if you're following along, back up your SD card now. Take a full disk image using something like Win32Imager -- you don't want to make your OS read-only and THEN find out that something is wrong. You'd have to wipe it and start from scratch.
-{{< /alert >}}
+{{< /admonition >}}
 
 I used [this article from Adafruit](https://learn.adafruit.com/read-only-raspberry-pi) to actually perform the operation with the card plugged into a different Pi, and as far as I can tell it worked perfectly. When the SD card was slotted back into the Pi on the TV, everything worked perfectly!
 

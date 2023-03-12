@@ -11,9 +11,7 @@ tags:
   - nintendo
 ---
 
-{{< lead >}}
-Sometimes the past just needs a little kick to get into the future.
-{{< /lead >}}
+## Sometimes the past just needs a little kick to get into the future.
 
 As I get older, something that annoys me frequently is having to find different cables to charge things. As a direct result of this, I've started tailoring my shopping to find things that I can power with a single connector: [USB-C](https://en.wikipedia.org/wiki/USB-C). This list includes:
 
@@ -30,7 +28,7 @@ Occasionally, with enough time and research, sometimes I get a craving to dive i
 
 Today's USB-C adventure involves my new-to-me New 3DS XL. But first:
 
-{{< alert circle-info >}}
+{{< admonition type=note title="" >}}
 For those of you just as confused about the naming as I was, here's the rough layout of the Nintendo DS line:
 
 * Nintendo DS
@@ -43,7 +41,7 @@ For those of you just as confused about the naming as I was, here's the rough la
 * New Nintendo 3DS
 * New Nintendo 3DS XL <-- you are here
 * New Nintendo 2DS XL
-{{< /alert >}}
+{{< /admonition >}}
 
 ## Why?
 
