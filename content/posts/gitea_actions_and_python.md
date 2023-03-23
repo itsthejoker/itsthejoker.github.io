@@ -71,8 +71,6 @@ jobs:
     contents: write
   steps:
   - uses: https://github.com/actions/checkout@v2
-  - name: lsb_release -i -r -s
-    run: lsb_release -i -r -s
   - uses: https://github.com/actions/setup-python@v4
     with:
     python-version: '3.11.x'
@@ -100,7 +98,7 @@ jobs:
 
 You'll notice that there's only one change from a standard GHA file -- I've prepended `https://github.com/` to each step that uses an external action (and I'm not even 100% sure if that's needed, but that was in the examples so I'm rolling with it).
 
-I also had to create a new secret -- since I use the Personal Access Token on GitHub added to the repo on GitHub, I went looking for a suitable replacement on Gitea. I'm very pleased to report that not only can repositories hold secrets (as expected) but you can assign secrets to your user account and they'll automatically apply to all your repos! I created a basic token with repository permissions and added it as a user secret called `PAT` -- that section of the run file works 100% as expected. Bravo, Gitea!
+I also had to create a new secret -- since I use the Personal Access Token on GitHub added to the repo, I went looking for a suitable replacement on Gitea. I'm very pleased to report that not only can repositories hold secrets (as expected) but you can assign secrets to your user account and they'll automatically apply to all your repos! I created a basic token with repository permissions and added it as a user secret called `PAT` -- that section of the run file works 100% as expected. Bravo, Gitea!
 
 ![A screenshot of the account Secrets page in Gitea.](images/gitea_secrets.png "Shh. It's a secret.")
 
