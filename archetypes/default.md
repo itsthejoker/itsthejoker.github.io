@@ -14,8 +14,6 @@ tags:
   - perl
 ---
 
-{{< lead >}}
-Impactful start to the post!
-{{< /lead >}}
+## Impactful start to the post!
 
 Remember that you can link to other pages with [link]({{< ref "docs/page_name_without_md" >}})
