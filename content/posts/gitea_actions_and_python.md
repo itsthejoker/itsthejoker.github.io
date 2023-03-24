@@ -142,7 +142,25 @@ After you change out the label section, restart the runner and then restart the 
 
 ![A screenshot of a successful build on Gitea Actions.](images/gitea_build_success.png "Ignore the extra debug 'lsb_release' step!")
 
-In a tremendously surprising move, even the release action worked out of the box, successfully pushing a release to my repo with no issues. Now I just have to fix the update checker (since the Gitea API isn't a 1:1 with GitHub's) and we're good to go!
+~~In a tremendously surprising move, even the release action worked out of the box, successfully pushing a release to my repo with no issues.~~ It created the release, but as it turns out, Gitea will not allow you to create a release _that contains assets_ in a single call. Here's the replacement for the release action listed above:
+
+```yaml
+    - name: Create release!
+      run: |
+        echo """release_id=$(\
+          curl -s https://${{ SERVER_URL }}/api/v1/repos/${GITHUB_REPOSITORY%/*}/${{ github.event.repository.name }}/releases \
+          -H "Authorization: token ${{ secrets.PAT }}" \
+          -d tag_name=${{ env.CURRENT_TIME_VERSION }} \
+          | python3 -c "import sys, json; print(json.load(sys.stdin)['id'])"\
+        )""" >> $GITHUB_ENV
+    - name: Upload assets!
+      run: |
+        curl https://${{ SERVER_URL }}/api/v1/repos/${GITHUB_REPOSITORY%/*}/${{ github.event.repository.name }}/releases/${{ env.release_id }}/assets \
+        -H "Authorization: token ${{ secrets.PAT }}" \
+        -F attachment=@utils
+```
+
+Not particularly glamorous, and getting this figured out was kind of a pain, but hey, it's at least fairly portable. Besides, copying and pasting between workflow files is a time-honored tradition. :joy:
 
 Major props to the Gitea team for getting this out the door -- I'm so excited that it's here and very excited to use it on my repos!
 
