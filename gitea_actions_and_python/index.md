@@ -88,6 +88,10 @@ jobs:
 
 You'll notice that there's only one change from a standard GHA file -- I've prepended `https://github.com/` to each step that uses an external action (and I'm not even 100% sure if that's needed, but that was in the examples so I'm rolling with it).
 
+{{< admonition type=info title="Spoiler alert!" >}}
+I learned after posting this that the upload step doesn't work with Gitea! GitHub allows you to create a release and add assets to that release in a single step, but Gitea requires that you create a release, then attach assets to that release. See the bottom of this page for the updated step you can tweak to get that working on your server.
+{{</ admonition >}}
+
 I also had to create a new secret -- since I use the Personal Access Token on GitHub added to the repo, I went looking for a suitable replacement on Gitea. I'm very pleased to report that not only can repositories hold secrets (as expected) but you can assign secrets to your user account and they'll automatically apply to all your repos! I created a basic token with repository permissions and added it as a user secret called `PAT` -- that section of the run file works 100% as expected. Bravo, Gitea!
 
 ![A screenshot of the account Secrets page in Gitea.](images/gitea_secrets.png "Shh. It's a secret.")
@@ -137,15 +141,25 @@ After you change out the label section, restart the runner and then restart the 
 ```yaml
     - name: Create release!
       run: |
+        JSON_DATA=$(
+          printf '%s' \
+          '{'\
+            '"tag_name":"${{ env.CURRENT_TIME_VERSION }}",'\
+            '"name":"${{ env.CURRENT_TIME_VERSION }}",'\
+            '"body":"RELEASE THE KRAKEN"'\
+          '}' \
+        )
         echo """release_id=$(\
-          curl -s https://${{ SERVER_URL }}/api/v1/repos/${GITHUB_REPOSITORY%/*}/${{ github.event.repository.name }}/releases \
+          curl -X POST \
+          -s https://${{ secrets.SERVER_URL }}/api/v1/repos/${GITHUB_REPOSITORY%/*}/${{ github.event.repository.name }}/releases \
           -H "Authorization: token ${{ secrets.PAT }}" \
-          -d tag_name=${{ env.CURRENT_TIME_VERSION }} \
+          -H 'Content-Type: application/json' \
+          -d "$JSON_DATA" \
           | python3 -c "import sys, json; print(json.load(sys.stdin)['id'])"\
         )""" >> $GITHUB_ENV
     - name: Upload assets!
       run: |
-        curl https://${{ SERVER_URL }}/api/v1/repos/${GITHUB_REPOSITORY%/*}/${{ github.event.repository.name }}/releases/${{ env.release_id }}/assets \
+        curl https://${{ secrets.SERVER_URL }}/api/v1/repos/${GITHUB_REPOSITORY%/*}/${{ github.event.repository.name }}/releases/${{ env.release_id }}/assets \
         -H "Authorization: token ${{ secrets.PAT }}" \
         -F attachment=@utils
 ```
