@@ -94,7 +94,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # website description for RSS, SEO, Open Graph and Twitter Cards
   description = "Personal writing, projects, and thoughts galore."
   # website images for Open Graph and Twitter Cards
-  images = ["images/me.jpg"]
+  images = []
 
   # Header config
   [params.header]
