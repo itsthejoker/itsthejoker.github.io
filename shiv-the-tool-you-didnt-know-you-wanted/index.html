@@ -1,0 +1,333 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>shiv - the Python Tool You Didn't Know You Wanted - Joe Kaufeld</title><meta name=Description content="Personal writing, projects, and thoughts galore."><meta property="og:title" content="shiv - the Python Tool You Didn't Know You Wanted"><meta property="og:description" content="shiv is a Python utility for making next-gen zipapps &ndash; dependency hell no more!"><meta property="og:type" content="article"><meta property="og:url" content="https://itsthejoker.github.io/shiv-the-tool-you-didnt-know-you-wanted/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-04-23T20:44:28-04:00"><meta property="article:modified_time" content="2023-04-24T20:51:37-04:00"><meta property="og:site_name" content="Joe Kaufeld"><meta name=twitter:card content="summary"><meta name=twitter:title content="shiv - the Python Tool You Didn't Know You Wanted"><meta name=twitter:description content="shiv is a Python utility for making next-gen zipapps &ndash; dependency hell no more!"><meta name=application-name content="Joe Kaufeld"><meta name=apple-mobile-web-app-title content="Joe Kaufeld"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://itsthejoker.github.io/shiv-the-tool-you-didnt-know-you-wanted/><link rel=prev href=https://itsthejoker.github.io/gitea_actions_and_python/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"shiv - the Python Tool You Didn't Know You Wanted","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/itsthejoker.github.io\/shiv-the-tool-you-didnt-know-you-wanted\/"},"image":[{"@type":"ImageObject","url":"https:\/\/itsthejoker.github.io\/images\/me.jpg","width":2542,"height":2363}],"genre":"posts","keywords":"python, terminal","wordcount":2468,"url":"https:\/\/itsthejoker.github.io\/shiv-the-tool-you-didnt-know-you-wanted\/","datePublished":"2023-04-23T20:44:28-04:00","dateModified":"2023-04-24T20:51:37-04:00","license":"All rights reserved.","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Joe Kaufeld"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Joe Kaufeld">Joe Kaufeld</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>Posts </a><a class=menu-item href=/software_and_media>Software & Media </a><a class=menu-item href=/tags/>Tags </a><a class=menu-item href=/categories/>Categories </a><a class=menu-item href=/series/>Series </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder="Search titles or contents..." id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i></a>
+<span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Joe Kaufeld">Joe Kaufeld</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder="Search titles or contents..." id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i></a>
+<span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>Cancel</a></div><a class=menu-item href=/posts/ title>Posts</a><a class=menu-item href=/software_and_media title>Software & Media</a><a class=menu-item href=/tags/ title>Tags</a><a class=menu-item href=/categories/ title>Categories</a><a class=menu-item href=/series/ title>Series</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class="toc-content always-active" id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">shiv - the Python Tool You Didn't Know You Wanted</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://joekaufeld.com title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>Joe Kaufeld</a></span>&nbsp;<span class=post-category>included in <a href=/categories/python/><i class="far fa-folder fa-fw" aria-hidden=true></i>python</a></span></div><div class=post-meta-line></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2023-04-23>2023-04-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;2468 words&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;12 minutes&nbsp;</div></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#your-code--a-zip-archive--single-file-deployments>Your code + a zip archive = single file deployments</a></li><li><a href=#zip-archives>Zip archives?</a></li><li><a href=#the-problem>The Problem</a></li><li><a href=#the-use-case>The Use Case</a></li><li><a href=#stuff-to-watch-for>Stuff to Watch For</a><ul><li><a href=#abandoned-environments>Abandoned Environments</a></li><li><a href=#path-shenanigans>Path() Shenanigans</a></li></ul></li><li><a href=#conclusion>Conclusion</a></li></ul></nav></div></div><div class=content id=content><h2 id=your-code--a-zip-archive--single-file-deployments>Your code + a zip archive = single file deployments</h2><p>I know that&rsquo;s an incredibly enticing intro, but bear with me. We&rsquo;ll get there.</p><h2 id=zip-archives>Zip archives?</h2><p>Way back in the dark ages of 2008, <strong>Python 2.6</strong> was released. This release was particularly exciting because it brought us such wondrous things as the <a href=https://docs.python.org/3/library/multiprocessing.html target=_blank rel="noopener noreffer"><code>multiprocessing</code> module</a>, the <a href=https://docs.python.org/3/library/io.html target=_blank rel="noopener noreffer"><code>io</code> module</a>, and codified the <a href=https://docs.python.org/2/reference/compound_stmts.html#with target=_blank rel="noopener noreffer"><code>with</code> statement</a> as a keyword for doing better-controlled contextual processing. It also brought a lot of existential angst about the upcoming Python 3 release, but we&rsquo;re skipping over that.</p><p>Buried in the release notes was a single paragraph that mentioned <a href=https://docs.python.org/2/whatsnew/2.6.html#other-language-changes target=_blank rel="noopener noreffer">&ldquo;oh hey by the way you can now run Python files from inside a zip archive&rdquo;</a>.</p><figure><a class=lightgallery href=/gifs/samueljackson-what.gif title="Samuel Jackson in the movie Coming to America saying &lsquo;WHAT?!&rsquo; incredulously." data-thumbnail=/gifs/samueljackson-what.gif data-sub-html="<h2>This is a pretty accurate representation of how I felt reading this in the future.</h2>"><img class=lazyload src=/svg/loading.min.svg data-src=/gifs/samueljackson-what.gif data-srcset="/gifs/samueljackson-what.gif, /gifs/samueljackson-what.gif 1.5x, /gifs/samueljackson-what.gif 2x" data-sizes=auto alt="Samuel Jackson in the movie Coming to America saying &lsquo;WHAT?!&rsquo; incredulously." width=480 height=480></a><figcaption class=image-caption>This is a pretty accurate representation of how I felt reading this in the future.</figcaption></figure><p>Imagine, being able to call a zip file with Python and have it actually work:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># You don&#39;t have to imagine. This works.</span>
+</span></span><span class=line><span class=cl>❯ <span class=nb>echo</span> <span class=s2>&#34;print(&#39;hello, world!&#39;)&#34;</span> &gt;&gt; __main__.py
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>❯ zip test.zip __main__.py                 
+</span></span><span class=line><span class=cl>  adding: __main__.py <span class=o>(</span>stored 0%<span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>❯ python test.zip
+</span></span><span class=line><span class=cl>Hello, World!
+</span></span></code></pre></td></tr></table></div></div><p>This was, somewhat predictably, completely missed by the vast majority of folks. In <a href=https://peps.python.org/pep-0441/ target=_blank rel="noopener noreffer">2013, PEP 441</a> attempted to fix this by bringing the whole &lsquo;package your stuff in a zip file&rsquo; thing into the public view by <a href=https://docs.python.org/3/library/zipapp.html target=_blank rel="noopener noreffer">adding the <code>zipapp</code> module</a> to the standard library, adding a whole suite of tools to make working with zipapps much easier for the average Python developer.</p><p>This was such a revolutionary change that it <a href=https://docs.python.org/3/whatsnew/3.5.html#zipapp target=_blank rel="noopener noreffer">got a whole three sentences</a> in the release notes and was more or less completely overshadowed by the <a href=https://docs.python.org/3/library/typing.html target=_blank rel="noopener noreffer">introduction of <code>typing</code></a> as a core Python feature. Sorry, <a href=https://peps.python.org/pep-0441/ target=_blank rel="noopener noreffer">Daniel and Paul</a> &ndash; you tried.</p><p>Now that we have reasonable support for making and using zipapps, we can cover the single huge glaring issue: <strong>no third-party dependencies</strong>.</p><h2 id=the-problem>The Problem</h2><p>Zipapps are fantastic! They let you bundle ALL of your Python code into a single zip archive, pass that archive off to someone else, and they can <em>just run it</em>! However, there&rsquo;s one glaring issue: <strong>you can only rely on the standard library</strong>. Third party dependencies are right out unless you manually bundle them with your codebase, which is both a pain to do in the first place and an easy way to accidentally run afoul of licenses if you&rsquo;re not paying close enough attention.</p><p>I don&rsquo;t know about you, but I basically never write things that rely <em>only</em> on the standard library &ndash; third party dependencies are a fact of life for all the Python developers I know. So how can we get the power of third party dependencies with the pure awesomeness of being able to package an entire runnable program into a zip file?</p><p>The answer, as it turns out, was figured out by all those cool folks at Twitter who aren&rsquo;t there anymore. They <a href=https://pex.readthedocs.io/ target=_blank rel="noopener noreffer">designed and built <code>pex</code></a>, a system that solves the third party dependency problem by essentially zipping up the virtual environment (minus the interpreter) and extracting it prior to running the zipapp. The implementation used by <code>pex</code> is functional, though a bit on the slow side.</p><p><code>shiv</code> is LinkedIn&rsquo;s attempt at solving the speed issues of <code>pex</code> while still keeping all of the functionality. (You can find more information about the <a href=https://shiv.readthedocs.io/en/latest/history.html#how target=_blank rel="noopener noreffer">speed differences between <code>pex</code> and <code>shiv</code> here.</a> You can also find more technical information on <code>shiv</code>&rsquo;s approach at that link as well.) You only need a few things installed to actually make a <code>shiv</code> app:</p><ul><li>a recent version of Python</li><li>an environment that includes <code>shiv</code></li><li>a setup.py file that lists all the dependencies of your app</li><li>your app code itself</li></ul><p>That&rsquo;s really it, and in fact, that&rsquo;s all you need to have in your CI pipeline if you want to automatically build your <code>shiv</code> apps for CI-controlled releases. Take a look at this example, starting from an empty directory:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># we need a virtual environment to start in.</span>
+</span></span><span class=line><span class=cl>❯ python -m venv .venv
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>❯ . .venv/bin/activate
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Now that we have an environment to work in,</span>
+</span></span><span class=line><span class=cl><span class=c1># we&#39;ll install shiv.</span>
+</span></span><span class=line><span class=cl>❯ pip install shiv
+</span></span><span class=line><span class=cl>Collecting shiv
+</span></span><span class=line><span class=cl>  Using cached shiv-1.0.3-py2.py3-none-any.whl <span class=o>(</span><span class=m>19</span> kB<span class=o>)</span>
+</span></span><span class=line><span class=cl>Collecting click!<span class=o>=</span>7.0,&gt;<span class=o>=</span>6.7 <span class=o>(</span>from shiv<span class=o>)</span>
+</span></span><span class=line><span class=cl>  Using cached click-8.1.3-py3-none-any.whl <span class=o>(</span><span class=m>96</span> kB<span class=o>)</span>
+</span></span><span class=line><span class=cl>Requirement already satisfied: pip&gt;<span class=o>=</span>9.0.3 in ./.venv/lib/python3.11/site-packages <span class=o>(</span>from shiv<span class=o>)</span> <span class=o>(</span>23.1.1<span class=o>)</span>
+</span></span><span class=line><span class=cl>Requirement already satisfied: setuptools in ./.venv/lib/python3.11/site-packages <span class=o>(</span>from shiv<span class=o>)</span> <span class=o>(</span>65.5.0<span class=o>)</span>
+</span></span><span class=line><span class=cl>Installing collected packages: click, shiv
+</span></span><span class=line><span class=cl>Successfully installed click-8.1.3 shiv-1.0.3
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Cool. Let&#39;s make our app.</span>
+</span></span><span class=line><span class=cl>❯ mkdir myapp
+</span></span><span class=line><span class=cl>❯ <span class=nb>echo</span> <span class=s2>&#34;import httpx\ndef main():\n    print(httpx.get)&#34;</span> &gt;&gt; myapp/cli.py
+</span></span><span class=line><span class=cl>❯ touch myapp/__init__.py
+</span></span></code></pre></td></tr></table></div></div><p>We have a single file that calls a third-party dependency and attempts to print a reference. If we call it now with <code>python cli.py</code> it&rsquo;ll break, since we don&rsquo;t have <code>httpx</code> installed. However, we&rsquo;ll add a reference to that in our setup.py file now.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>❯ touch setup.py
+</span></span><span class=line><span class=cl>❯ tee -a setup.py <span class=s>&lt;&lt;EOF
+</span></span></span><span class=line><span class=cl><span class=s>∙ from setuptools import setup
+</span></span></span><span class=line><span class=cl><span class=s>∙ setup_kwargs = {
+</span></span></span><span class=line><span class=cl><span class=s>∙   &#39;name&#39;: &#39;myapp&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>∙   &#39;version&#39;: &#39;0.0.1&#39;, 
+</span></span></span><span class=line><span class=cl><span class=s>∙   &#39;packages&#39;: [&#39;myapp&#39;],
+</span></span></span><span class=line><span class=cl><span class=s>∙   &#39;install_requires&#39;: [&#39;httpx&#39;],       
+</span></span></span><span class=line><span class=cl><span class=s>∙   &#39;entry_points&#39;: {&#39;console_scripts&#39;: [&#39;myapp = myapp.cli:main&#39;]},
+</span></span></span><span class=line><span class=cl><span class=s>∙   &#39;python_requires&#39;: &#39;&gt;=3.10&#39; 
+</span></span></span><span class=line><span class=cl><span class=s>∙ }
+</span></span></span><span class=line><span class=cl><span class=s>∙ setup(**setup_kwargs)
+</span></span></span><span class=line><span class=cl><span class=s>∙ EOF</span>
+</span></span><span class=line><span class=cl>from setuptools import setup
+</span></span><span class=line><span class=cl><span class=nv>setup_kwargs</span> <span class=o>=</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;name&#39;</span>: <span class=s1>&#39;myapp&#39;</span>,
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;version&#39;</span>: <span class=s1>&#39;0.0.1&#39;</span>, 
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;packages&#39;</span>: <span class=o>[</span><span class=s1>&#39;myapp&#39;</span><span class=o>]</span>,
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;install_requires&#39;</span>: <span class=o>[</span><span class=s1>&#39;httpx&#39;</span><span class=o>]</span>,       
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;entry_points&#39;</span>: <span class=o>{</span><span class=s1>&#39;console_scripts&#39;</span>: <span class=o>[</span><span class=s1>&#39;myapp = myapp.cli:main&#39;</span><span class=o>]}</span>,
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;python_requires&#39;</span>: <span class=s1>&#39;&gt;=3.10&#39;</span> 
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>setup<span class=o>(</span>**setup_kwargs<span class=o>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>Now that we have a pretty basic <code>setup.py</code> file and everything else configured, we can make the app:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>❯ shiv -c myapp -o myapp.pyz .
+</span></span><span class=line><span class=cl>Processing /home/joe/code/test
+</span></span><span class=line><span class=cl>  Installing build dependencies: started
+</span></span><span class=line><span class=cl>  Installing build dependencies: finished with status <span class=s1>&#39;done&#39;</span>
+</span></span><span class=line><span class=cl>  Getting requirements to build wheel: started
+</span></span><span class=line><span class=cl>  Getting requirements to build wheel: finished with status <span class=s1>&#39;done&#39;</span>
+</span></span><span class=line><span class=cl>  Preparing metadata <span class=o>(</span>pyproject.toml<span class=o>)</span>: started
+</span></span><span class=line><span class=cl>  Preparing metadata <span class=o>(</span>pyproject.toml<span class=o>)</span>: finished with status <span class=s1>&#39;done&#39;</span>
+</span></span><span class=line><span class=cl>Collecting httpx <span class=o>(</span>from <span class=nv>myapp</span><span class=o>==</span>0.0.1<span class=o>)</span>
+</span></span><span class=line><span class=cl>  Downloading httpx-0.24.0-py3-none-any.whl <span class=o>(</span><span class=m>75</span> kB<span class=o>)</span>
+</span></span><span class=line><span class=cl>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 75.3/75.3 kB 1.6 MB/s eta 0:00:00
+</span></span><span class=line><span class=cl>Collecting certifi <span class=o>(</span>from httpx-&gt;myapp<span class=o>==</span>0.0.1<span class=o>)</span>
+</span></span><span class=line><span class=cl>  Using cached certifi-2022.12.7-py3-none-any.whl <span class=o>(</span><span class=m>155</span> kB<span class=o>)</span>
+</span></span><span class=line><span class=cl>Collecting httpcore&lt;0.18.0,&gt;<span class=o>=</span>0.15.0 <span class=o>(</span>from httpx-&gt;myapp<span class=o>==</span>0.0.1<span class=o>)</span>
+</span></span><span class=line><span class=cl>  Downloading httpcore-0.17.0-py3-none-any.whl <span class=o>(</span><span class=m>70</span> kB<span class=o>)</span>
+</span></span><span class=line><span class=cl>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 70.6/70.6 kB 3.1 MB/s eta 0:00:00
+</span></span><span class=line><span class=cl>Collecting idna <span class=o>(</span>from httpx-&gt;myapp<span class=o>==</span>0.0.1<span class=o>)</span>
+</span></span><span class=line><span class=cl>  Using cached idna-3.4-py3-none-any.whl <span class=o>(</span><span class=m>61</span> kB<span class=o>)</span>
+</span></span><span class=line><span class=cl>Collecting sniffio <span class=o>(</span>from httpx-&gt;myapp<span class=o>==</span>0.0.1<span class=o>)</span>
+</span></span><span class=line><span class=cl>  Using cached sniffio-1.3.0-py3-none-any.whl <span class=o>(</span><span class=m>10</span> kB<span class=o>)</span>
+</span></span><span class=line><span class=cl>Collecting h11&lt;0.15,&gt;<span class=o>=</span>0.13 <span class=o>(</span>from httpcore&lt;0.18.0,&gt;<span class=o>=</span>0.15.0-&gt;httpx-&gt;myapp<span class=o>==</span>0.0.1<span class=o>)</span>
+</span></span><span class=line><span class=cl>  Using cached h11-0.14.0-py3-none-any.whl <span class=o>(</span><span class=m>58</span> kB<span class=o>)</span>
+</span></span><span class=line><span class=cl>Collecting anyio&lt;5.0,&gt;<span class=o>=</span>3.0 <span class=o>(</span>from httpcore&lt;0.18.0,&gt;<span class=o>=</span>0.15.0-&gt;httpx-&gt;myapp<span class=o>==</span>0.0.1<span class=o>)</span>
+</span></span><span class=line><span class=cl>  Using cached anyio-3.6.2-py3-none-any.whl <span class=o>(</span><span class=m>80</span> kB<span class=o>)</span>
+</span></span><span class=line><span class=cl>Building wheels <span class=k>for</span> collected packages: myapp
+</span></span><span class=line><span class=cl>  Building wheel <span class=k>for</span> myapp <span class=o>(</span>pyproject.toml<span class=o>)</span>: started
+</span></span><span class=line><span class=cl>  Building wheel <span class=k>for</span> myapp <span class=o>(</span>pyproject.toml<span class=o>)</span>: finished with status <span class=s1>&#39;done&#39;</span>
+</span></span><span class=line><span class=cl>  Created wheel <span class=k>for</span> myapp: <span class=nv>filename</span><span class=o>=</span>myapp-0.0.1-py3-none-any.whl <span class=nv>size</span><span class=o>=</span><span class=m>1530</span> <span class=nv>sha256</span><span class=o>=</span>ad70a73161c189da712904a74056c663318f636e60ac3f8c5e4c869eeabde259
+</span></span><span class=line><span class=cl>  Stored in directory: /tmp/pip-ephem-wheel-cache-1udsfhau/wheels/99/3a/8b/6471545a346414b14f2840e683b284e596ec400c771b147d19
+</span></span><span class=line><span class=cl>Successfully built myapp
+</span></span><span class=line><span class=cl>Installing collected packages: sniffio, idna, h11, certifi, anyio, httpcore, httpx, myapp
+</span></span><span class=line><span class=cl>Successfully installed anyio-3.6.2 certifi-2022.12.7 h11-0.14.0 httpcore-0.17.0 httpx-0.24.0 idna-3.4 myapp-0.0.1 sniffio-1.3.0
+</span></span></code></pre></td></tr></table></div></div><p>If we check our directory, we have a new file &ndash; <code>myapp.pyz</code>. Let&rsquo;s run it!</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>❯ python myapp.pyz
+</span></span><span class=line><span class=cl>&lt;<span class=k>function</span> get at 0x7f41d3a64360&gt;
+</span></span></code></pre></td></tr></table></div></div><p>Now we have a single zip archive that includes a third party dependency that can be referenced and interacted with! It printed the reference to <code>httpx</code>, so we know that it&rsquo;s in there.</p><p>&mldr;actually, do we know it&rsquo;s in there? Maybe it&rsquo;s just picking that up from the environment that&rsquo;s still activated. Let&rsquo;s check.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>❯ deactivate
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># oh yeah, and you can totally call it directly</span>
+</span></span><span class=line><span class=cl><span class=c1># instead of using `python myapp.pyz`!</span>
+</span></span><span class=line><span class=cl>❯ ./myapp.pyz
+</span></span><span class=line><span class=cl>&lt;<span class=k>function</span> get at 0x7f368c70ade0&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Let&#39;s check real quick to make sure httpx</span>
+</span></span><span class=line><span class=cl><span class=c1># isn&#39;t lurking somewhere on the system path.</span>
+</span></span><span class=line><span class=cl>❯ python -c <span class=s2>&#34;import httpx&#34;</span>
+</span></span><span class=line><span class=cl>Traceback <span class=o>(</span>most recent call last<span class=o>)</span>:
+</span></span><span class=line><span class=cl>  File <span class=s2>&#34;&lt;string&gt;&#34;</span>, line 1, in &lt;module&gt;
+</span></span><span class=line><span class=cl>ModuleNotFoundError: No module named <span class=s1>&#39;httpx&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><p>There we go! We can see that it&rsquo;s pulling the dependency from its own packaged virtual environment.</p><h2 id=the-use-case>The Use Case</h2><p>Being able to package your entire app into a zip file has some incredible benefits, namely that you can now run your entire app on any system that just has an appropriate version of Python installed. For applications where your app just needs to run without tweaking, this means that someone (or something) can just grab your compiled and finished zipapp and just&mldr; run it. No fuss and no stress.</p><div class="details admonition warning open"><div class="details-summary admonition-title"><i class="icon fas fa-exclamation-triangle fa-fw" aria-hidden=true></i>Okay, maybe not quite 'no fuss'.<i class="details-icon fas fa-angle-right fa-fw" aria-hidden=true></i></div><div class=details-content><div class=admonition-content>You&rsquo;ll want to make sure that you&rsquo;re &lsquo;compiling&rsquo; on the same type of OS that you&rsquo;re deploying to if you&rsquo;re bundling any compiled C extensions. Regular Python code should be totally fine.</div></div></div><p>I wouldn&rsquo;t recommend that you check this out unless I&rsquo;d given it a thorough test myself; the nonprofit I run, <a href=https://grafeas.org target=_blank rel="noopener noreffer">the Grafeas Group</a>, has been running <strong>all of our production services</strong> as zipapps for the last 8 months. That&rsquo;s:</p><ul><li><a href=https://github.com/grafeasgroup/tor target=_blank rel="noopener noreffer">three</a> <a href=https://github.com/grafeasgroup/tor_ocr target=_blank rel="noopener noreffer">Reddit</a> <a href=https://github.com/grafeasgroup/tor_archivist target=_blank rel="noopener noreffer">bots</a></li><li>a <a href=https://github.com/grafeasgroup/buttercup target=_blank rel="noopener noreffer">Discord bot</a></li><li>a <a href=https://github.com/grafeasgroup/bubbles target=_blank rel="noopener noreffer">Slack bot</a></li><li>a <a href=https://github.com/grafeasgroup/blossom target=_blank rel="noopener noreffer">Django monolith</a> that handles our website and APIs</li></ul><p>Deployments have literally never been easier (and are <a href=https://github.com/GrafeasGroup/Bubbles/blob/main/bubbles/commands/deploy.py target=_blank rel="noopener noreffer">completely controlled via Slack commands!</a>) &ndash; it&rsquo;s literally as easy as backing up the existing zipapp, downloading the new one, and running it. The Slack bot, <a href=https://github.com/grafeasgroup/bubbles target=_blank rel="noopener noreffer">Bubbles</a>, updates itself by downloading the new version on top of the existing one and restarting its own service!</p><p>The benefit here is that if the new version fails, getting back to a working state is literally as easy as swapping out the older version of the zipapp and restarting the service. What&rsquo;s that? You made changes to the virtual environment between versions? Literally doesn&rsquo;t matter because each zipapp uses its own environment. If it compiles and it works, it can&rsquo;t be affected by any other zipapp, even later or earlier compilations of the same system.</p><p>Spinning up a new server is as easy as getting a new VM, installing Python on it, and slapping the zipapps into place with their respective environment variable files. We intentionally keep it simple because this is a volunteer gig and there&rsquo;s no reason to muddy the devops waters by adding something like Docker. But let&rsquo;s say <em>you</em> wanted to add Docker or another container; would that be any more complex?</p><p>Honestly, not really. You&rsquo;d basically just get the official Python container, drop your zipapp onto the root and set your launch script to call it. It does kind of defeat the purpose of easy updates, but it can be done!</p><h2 id=stuff-to-watch-for>Stuff to Watch For</h2><p>As cool as using <code>shiv</code> for easily-deployable apps is, there are a few things that you need to know if you want to use it in production.</p><h3 id=abandoned-environments>Abandoned Environments</h3><p><code>shiv</code> puts the virtual environment for that zipapp in <code>~/.shiv</code> unless you override it, and since each zipapp (and each version of each zipapp) has its own virtual environment, that means that this directory can get reasonably busy. The easiest way to address this is to use the &ldquo;preamble&rdquo; section of <code>shiv</code>&rsquo;s setup, which allows you to run a single script before actually starting the zipapp.</p><p>There&rsquo;s a complete preamble script that handles abandoned environments <a href=https://shiv.readthedocs.io/en/latest/index.html#preamble target=_blank rel="noopener noreffer">available in the <code>shiv</code> documentation</a> &ndash; adding and extending it is pretty straightforward, but it is something that you need to be aware of as environments can build up across deployments.</p><h3 id=path-shenanigans>Path() Shenanigans</h3><p>The only other major thing you need to watch out for is <strong>relative paths</strong>. Let&rsquo;s edit our <code>cli.py</code> file:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pathlib</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>getcwd</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>pathlib</span><span class=o>.</span><span class=n>Path</span><span class=p>(</span><span class=vm>__file__</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><p>If we run this directly with <code>python myapp/cli.py</code>, here&rsquo;s what I get:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>❯ python myapp/cli.py
+</span></span><span class=line><span class=cl>/home/joe/code/test
+</span></span><span class=line><span class=cl>/home/joe/code/test/myapp/cli.py
+</span></span></code></pre></td></tr></table></div></div><p>But if we compile this into a zipapp, things will look a little different:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>❯ shiv -c myapp -o myapp.pyz .
+</span></span><span class=line><span class=cl>Processing /home/joe/code/test
+</span></span><span class=line><span class=cl>...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>❯ ./myapp.pyz
+</span></span><span class=line><span class=cl>/home/joe/code/test
+</span></span><span class=line><span class=cl>/home/joe/.shiv/myapp.pyz_c1a18b172051ba68db2091f324e067c2e9c6b74dad677c71f3748348c2b376d6/site-packages/myapp/cli.py
+</span></span></code></pre></td></tr></table></div></div><p>&mldr;which is <em>not</em> where we expected it to be. That means that if you want to load external files that are in the same directory as the compiled zipapp (and <code>os.getcwd()</code> might not be accurate for your use case), you&rsquo;ll need to ask shiv itself where you&rsquo;re running. Thankfully, there&rsquo;s an extra little bit that gets injected into the final zipapp during build time, and there are a couple of utilities there that can help us out.</p><p>Let&rsquo;s rebuild our script a little bit &ndash; now we&rsquo;ll do a check to see if <code>shiv</code> is available in the current environment and then print out the directory that our zipapp is in. This would be useful anytime you want to load external files in the same directory, like a <code>.env</code> file, a <code>db.sqlite3</code> file, or something else along those lines.</p><p>Here&rsquo;s the new <code>cli.py</code> file:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pathlib</span> <span class=kn>import</span> <span class=n>Path</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=kn>from</span> <span class=nn>shiv.bootstrap</span> <span class=kn>import</span> <span class=n>current_zipfile</span>
+</span></span><span class=line><span class=cl>    <span class=n>IN_SHIV</span> <span class=o>=</span> <span class=kc>True</span>
+</span></span><span class=line><span class=cl><span class=k>except</span> <span class=ne>ImportError</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>IN_SHIV</span> <span class=o>=</span> <span class=kc>False</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;Calling from </span><span class=si>{</span><span class=n>os</span><span class=o>.</span><span class=n>getcwd</span><span class=p>()</span><span class=si>}</span><span class=s2>...&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>IN_SHIV</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;shiv is not installed.&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=n>Path</span><span class=p>(</span><span class=vm>__file__</span><span class=p>)</span><span class=o>.</span><span class=n>parent</span><span class=o>.</span><span class=n>parent</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>with</span> <span class=n>current_zipfile</span><span class=p>()</span> <span class=k>as</span> <span class=n>archive</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>archive</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;shiv is installed and we are inside a zipapp!&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=nb>print</span><span class=p>(</span><span class=n>Path</span><span class=p>(</span><span class=n>archive</span><span class=o>.</span><span class=n>filename</span><span class=p>)</span><span class=o>.</span><span class=n>resolve</span><span class=p>(</span><span class=n>strict</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span><span class=o>.</span><span class=n>parent</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;shiv is installed and we are NOT in a zipapp!&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=nb>print</span><span class=p>(</span><span class=n>Path</span><span class=p>(</span><span class=vm>__file__</span><span class=p>)</span><span class=o>.</span><span class=n>resolve</span><span class=p>(</span><span class=n>strict</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span><span class=o>.</span><span class=n>parent</span><span class=o>.</span><span class=n>parent</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=n>main</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><p>Now, let&rsquo;s try running it!</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># outside the environment, calling directly:</span>
+</span></span><span class=line><span class=cl>❯ python myapp/cli.py
+</span></span><span class=line><span class=cl>Calling from /home/joe/code/test...
+</span></span><span class=line><span class=cl>shiv is not installed.
+</span></span><span class=line><span class=cl>/home/joe/code/test
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># inside the environment, calling directly:</span>
+</span></span><span class=line><span class=cl>❯ python myapp/cli.py
+</span></span><span class=line><span class=cl>Calling from /home/joe/code/test...
+</span></span><span class=line><span class=cl>shiv is installed and we are NOT in a zipapp!
+</span></span><span class=line><span class=cl>/home/joe/code/test
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># calling the zipapp:</span>
+</span></span><span class=line><span class=cl>❯ ./myapp.pyz
+</span></span><span class=line><span class=cl>Calling from /home/joe/code/test...
+</span></span><span class=line><span class=cl>shiv is installed and we are inside a zipapp!
+</span></span><span class=line><span class=cl>/home/joe/code/test
+</span></span></code></pre></td></tr></table></div></div><p>We use this method to create a <code>BASE_DIR</code> variable that&rsquo;s accessible throughout the application along the lines of Django&rsquo;s BASE_DIR (which is <em>very</em> wrong when packaged with <code>shiv</code>). That allows easy loading of external files and makes it work the way you expect it to. A little bit of boilerplate, but nothing too bad once you know to watch for it.</p><h2 id=conclusion>Conclusion</h2><p>If you&rsquo;re looking for a low-tech way to deploy a single python app (or a BUNCH of them!) or just want to pass scripts and things around to coworkers, <code>shiv</code> is worth your time to check out. Coupled with building and releasing the zipapps in your CI pipeline, it&rsquo;s a system that is really hard to beat. Usability is great, using it is a snap, and if you pair it with <code>click</code>, you can get extremely usable CLI programs for essentially no cost.</p><p>The linked repositories in this post are a great place to look if you&rsquo;re wanting to see what this looks like in practice, and you can also take a look at my <a href=https://git.joekaufeld.com/jkaufeld/utils target=_blank rel="noopener noreffer">self-updating utils script here</a> if you&rsquo;d like to see how <code>click</code> can be used to add an easy <code>--update</code> flag that checks for a new release and automatically installs it!</p><p>Happy packaging!</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 2023-04-24</span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/shiv-the-tool-you-didnt-know-you-wanted/index.md target=_blank>Read Markdown</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://itsthejoker.github.io/shiv-the-tool-you-didnt-know-you-wanted/ data-title="shiv - the Python Tool You Didn't Know You Wanted" data-via=joekaufeld data-hashtags=python,terminal><i class="fab fa-twitter fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://itsthejoker.github.io/shiv-the-tool-you-didnt-know-you-wanted/ data-hashtag=python><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Tumblr" data-sharer=tumblr data-url=https://itsthejoker.github.io/shiv-the-tool-you-didnt-know-you-wanted/ data-title="shiv - the Python Tool You Didn't Know You Wanted" data-tags=python,terminal><i class="fab fa-tumblr fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Hacker News" data-sharer=hackernews data-url=https://itsthejoker.github.io/shiv-the-tool-you-didnt-know-you-wanted/ data-title="shiv - the Python Tool You Didn't Know You Wanted"><i class="fab fa-hacker-news fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Reddit" data-sharer=reddit data-url=https://itsthejoker.github.io/shiv-the-tool-you-didnt-know-you-wanted/><i class="fab fa-reddit fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Line" data-sharer=line data-url=https://itsthejoker.github.io/shiv-the-tool-you-didnt-know-you-wanted/ data-title="shiv - the Python Tool You Didn't Know You Wanted"><i data-svg-src=/lib/simple-icons/icons/line.min.svg aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/python/>python</a>,&nbsp;<a href=/tags/terminal/>terminal</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/gitea_actions_and_python/ class=prev rel=prev title="Gitea Actions, Python, and Debian"><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>Gitea Actions, Python, and Debian</a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2019 - 2023</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://joekaufeld.com target=_blank>Joe Kaufeld</a></span>&nbsp;|&nbsp;<span class=license>All rights reserved.</span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
+</a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><link rel=stylesheet href=/lib/katex/katex.min.css><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/contrib/auto-render.min.js></script><script type=text/javascript src=/lib/katex/contrib/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/contrib/mhchem.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:50},comment:{},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!0,left:"\\begin{equation}",right:"\\end{equation}"},{display:!0,left:"\\begin{equation*}",right:"\\end{equation*}"},{display:!0,left:"\\begin{align}",right:"\\end{align}"},{display:!0,left:"\\begin{align*}",right:"\\end{align*}"},{display:!0,left:"\\begin{alignat}",right:"\\end{alignat}"},{display:!0,left:"\\begin{alignat*}",right:"\\end{alignat*}"},{display:!0,left:"\\begin{gather}",right:"\\end{gather}"},{display:!0,left:"\\begin{CD}",right:"\\end{CD}"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{highlightTag:"em",lunrIndexURL:"/index.json",maxResultLength:10,noResultsFound:"No results found",snippetLength:30,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src=https://plausible.io/js/plausible.js async defer data-domain=itsthejoker.github.io></script></body></html>
