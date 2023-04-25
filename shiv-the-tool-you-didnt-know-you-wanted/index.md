@@ -181,9 +181,9 @@ I wouldn't recommend that you check this out unless I'd given it a thorough test
 * a [Slack bot][bubbles]
 * a [Django monolith][blossom] that handles our website and APIs
 
-Deployments have literally never been easier (and are [completely controlled via Slack commands!][gg_deployment]) -- it's literally as easy as backing up the existing zipapp, downloading the new one, and running it. The Slack bot, [Bubbles][bubbles], updates itself by downloading the new version on top of the existing one and restarting its own service!
+Deployments have never been easier (and are [completely controlled via Slack commands!][gg_deployment]) -- it's literally as easy as backing up the existing zipapp, downloading the new one, and running it. The Slack bot, [Bubbles][bubbles], updates itself by downloading the new version on top of the existing one and restarting its own service!
 
-The benefit here is that if the new version fails, getting back to a working state is literally as easy as swapping out the older version of the zipapp and restarting the service. What's that? You made changes to the virtual environment between versions? Literally doesn't matter because each zipapp uses its own environment. If it compiles and it works, it can't be affected by any other zipapp, even later or earlier compilations of the same system.
+The benefit here is that if the new version fails, getting back to a working state just swapping out the older version of the zipapp and restarting the service. What's that? You made changes to the virtual environment between versions? Doesn't matter because each zipapp uses its own environment. If it compiles and it works, it can't be affected by any other zipapp, even later or earlier compilations of the same system.
 
 Spinning up a new server is as easy as getting a new VM, installing Python on it, and slapping the zipapps into place with their respective environment variable files. We intentionally keep it simple because this is a volunteer gig and there's no reason to muddy the devops waters by adding something like Docker. But let's say _you_ wanted to add Docker or another container; would that be any more complex?
 
