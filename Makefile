@@ -2,10 +2,10 @@ serve:
 	hugo server -D --disableFastRender
 
 build:
-	mkdocs build
+	hugo --minify
 
 deploy:
-	mkdocs gh-deploy
+	git commit -am "site update"; git push
 
 new:
 	@read -p "What's the lower-case kebab-case name of the new post? " POST_NAME; \
