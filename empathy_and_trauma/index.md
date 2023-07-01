@@ -19,7 +19,7 @@ As part of my work, I spend a lot of time wandering the hospital, from ward to w
 
 `NO WHITE COATS`, a door sign proclaims. It's easier to understand this as threatening from my vantage point. Also thankfully, it's not something I have to worry about; no coats of any kind for me while on the floors.
 
-`NO MALE ATTENDINGS` reads a sign on a door with the shutters pulled tightly closed. As a male (though not an attending physician), that sign still applies to me, and I cannot help but wonder what is behind that door as I walk past. Each room is filled with suffering, and if I'm lucky I'll be able to distract them from it for a while. But not this room. I walk on.
+`NO MEN` reads a sign on a door with the shutters pulled tightly closed. That sign applies to me, and I cannot help but wonder what is behind that door as I walk past. Each room is filled with pain, and if I'm lucky I'll be able to distract them from it for a while. But not this room. I walk on.
 
 `NO RUNNING WATER` reads another. Another room that's not on my list, but representative of a horror I can only imagine. In this case, it's not that the room is lacking a functional sink; rather, any liquids must be brought in after being drawn from somewhere else.
 
