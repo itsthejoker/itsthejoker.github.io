@@ -7,7 +7,7 @@ I've been doing a lot of work at a local children's hospital recently, and there
 
 ## Inpatients and Empathy
 
-While at the hospital, I spend a fair amount of time with inpatients in their rooms. I'm not going to get into the details of it, but suffice it to say that I engage with them in a form of 'play therapy'.
+While at the hospital, I spend a fair amount of time with inpatients in their rooms. I'm not going to get into the details of it, but suffice it to say that I play video games a form of 'play therapy'.
 
 {{< admonition type=info title="Definition Check!" >}}
 `Outpatients` are folks who come to the hospital and are discharged that day.
@@ -29,9 +29,9 @@ After my shift, sometimes I sit in my car and think about the signs I've seen th
 
 ## The Green Heart Kids
 
-What do you do when you have a patient that needs to hide? I don't mean 'hide from the nurse' though that's a game that many inpatients play at least a few times. I mean, hide from the media. Hide from an abusive parent. Hide from the world.
+What do you do when you have a patient that needs to hide? I don't mean 'hide from the nurse', though that's a game that many inpatients play at least a few times. I mean, hide from the media. Hide from an abusive parent. Hide from the world.
 
-Enter the Green Hearts[^1]. A designation that is attached to a name in the patient system, it means one very simple thing: this patient _does not exist_. We've never heard of them. They're not here. Don't know what you're talking about. No one by that name here. If you've never thought about this before, I want you to stop and ponder for a minute. Think about the kinds of circumstances that could necessitate hiding a child away so that they can receive medical care. Think about what the green heart _means_.
+Enter the Green Hearts[^1]. A designation that is attached to a name in the patient system, it means one very simple thing: this patient _does not exist_. We've never heard of them. They're not here. Don't know what you're talking about. No one by that name here. If you've never thought about this before, I want you to stop and ponder for a minute. Think about the kinds of circumstances that could necessitate hiding a child away so they can receive medical care. Think about what the green heart _means_.
 
 I work with Green Heart kids almost every week, and for the most part, they're just normal kids. Kids with cancer. Kids with heart problems. Gastrointestinal problems. But still kids.
 
