@@ -57,6 +57,6 @@ The parents need just as much emotional support as the kids do, but I can't give
 
 There's no real closing here. It's just a rambling collection of thoughts that have been bounding around in my head for the past few months. Things that I never thought about, things that are the bread and butter of others stronger than I. For example, I was sitting with a burn patient and listening as they told the nurse about how it involved an accidental fall into a fire pit. The nurse nodded sagely and said, "Lucky it's just your arm. The younger ones usually go in headfirst."
 
-There's so much suffering. If I'm lucky, I can distract them for a while. That's my job, and I'd like to think I'm good at it. One kid at a time. One smile at a time. Just gotta get better at putting myself in their shoes.
+There's so much suffering. If I'm lucky, I can distract them for a while. That's my role, and I'd like to think I'm good at it. One kid at a time. One smile at a time. Just gotta get better at putting myself in their shoes.
 
 [^1]: They aren't green hearts. The actual designation is different, but I'm calling them green hearts for this post.
