@@ -1,7 +1,6 @@
 ---
 title: "Typos and Bitwise Operations"
 date: 2024-06-17T11:29:40-04:00
-draft: true
 summary: "Sometimes typos turn out to be unary operators in disguise."
 categories:
   - python
@@ -12,7 +11,7 @@ tags:
 
 ## Sometimes Typos Can Be Fun
 
-A little bit ago, I was playing around with some code in the Python REPL[^repl] and made a typo that spawned a whole rabbit hole of reading. 
+A little while ago, I was playing around with some code in the Python REPL[^repl] and made a typo that spawned a whole rabbit hole of reading. 
 
 ```python title="Python REPL"
 >>> x = 4
@@ -43,7 +42,9 @@ Let's start with a quick explanation of what we're actually looking at here, bec
 
 **Unary Arithmetic**: Any operation or modification that only involves one number.
 
-**MSB**: Most Significant Bit. It's the one on the farthest left.
+**MSB**: Most Significant Bit. It's the bit farthest to the left.
+
+**~**: A tilde. A very lovely symbol. Sometimes referred to as "that squiggle".
 {{< /admonition >}}
 
 Note that this is all kind of a pain and rather more complicated than it seems to need to be, but a certain amount of complexity is what allows computers to do a lot of math _very_ quickly, and doing it quickly is really what's important here.
@@ -68,7 +69,8 @@ Here's where it gets _real weird_. When reading the complement (the inverted ver
 
 ```
 1 0 1 1  # MSB = 1, so it's negative
-8 4 2 1  # just to remember the places that everything means
+x x x x  # ...times...
+8 4 2 1  # the placement of the numbers in binary
 -------
 8 0 2 1  # Normally, we'd sum these together.
          # However, there are two things different
@@ -88,13 +90,113 @@ Fun fact: to get the proper negative version of your starting number, it's the s
 
 ## What can you do with it?
 
+So now that we've gone over how this works, let's talk about silly things you can do with it.
+
+### Accessing the end of lists
+
+In Python, lists can be accessed from the end by using negative indexing, i.e.:
+
+```python
+>>> example = ['a', 'b', 'c', 'd', 'e']
+>>> example[1]
+'b'
+>>> example[-1]
+'e'
+```
+
+Notice that the first one is the second element in, but asking for the negative indexed version gets us the last element of the list. Enter the magic tilde:
+
+```python
+>>> example[~1]
+'d'
+```
+
+Perfection, and _very_ fast on large lists! In Python, there are only a handful of ways to go through lists backwards, and some of them are a little silly:
+
+```sh
+# using the invert operator to to request
+# the 4th element from the end
+❯ python -m timeit "x=list(range(1,100));x[~4]"
+500000 loops, best of 5: 462 nsec per loop
+
+# asking for it directly using -n - 1
+❯ python -m timeit "x=list(range(1,100));x[-5]"
+500000 loops, best of 5: 473 nsec per loop
+
+# arguably a more reasonable way to do this in most cases
+❯ python -m timeit "x=list(range(1,100));x.reverse();x[4]"
+500000 loops, best of 5: 499 nsec per loop
+
+# ...I don't recommend this
+❯ python -m timeit "x=list(range(1,100));x=[i for i in reversed(x)];x[4]"
+200000 loops, best of 5: 1.51 usec per loop
+```
+
+However, on lists of smaller size, it comes out to about the same:
+
+```sh
+❯ python -m timeit "x=list(range(1,10));x[~4]"
+2000000 loops, best of 5: 145 nsec per loop
+
+❯ python -m timeit "x=list(range(1,10));x[-5]"
+2000000 loops, best of 5: 147 nsec per loop
+
+❯ python -m timeit "x=list(range(1,10));x.reverse();x[4]"
+2000000 loops, best of 5: 144 nsec per loop
+
+❯ python -m timeit "x=list(range(1,10));x=[i for i in reversed(x)];x[4]"
+1000000 loops, best of 5: 362 nsec per loop
+```
+
+### A direct 'not' operator
+
+In some third party libraries like `django` and `numpy`, the tilde operator is implemented as a way to say "the opposite of this". For Django, you can [use them with Q() queryset objects][djangoqobject] to reverse the meaning of a Q() condition.
+
+For example:
+
+```python
+Question.objects.filter(
+  Q(question__startswith="Who") | ~Q(pub_date__year=2005)
+)
+```
+
+In numpy, you can use it on an array of booleans to flip everything in the array:
+
+```python
+>>> ~numpy.array([True, True, False, False], dtype=bool)
+array([False, False,  True,  True])
+```
+
+You can also use it to [do silly things with pandas dataframes][pandas]!
+
+### Write your own functionality
+
+The tilde calls a magic method called `__invert__()`, which you can implement yourself in your own objects!
+
+```py
+>>> class MyThing:
+...    def __init__(self, value) -> None:
+...        self.value = value
+...    def __invert__(self) -> str:
+...        return "INVERTED!"
+...
+>>> x = MyThing(4)
+>>> ~x
+'INVERTED!'
+```
+
+What kind of incredibly questionable things can you add to _your_ projects?
+
 ## Wrapping up
 
+Trying to figure out why all this works sent me down a rabbit hole, and for someone without a CS degree, there was a lot to uncover! Hopefully you learned something too. Go thou and invert!
 
 <!-- links -->
 
 [onescomplement]: https://en.wikipedia.org/wiki/Ones%27_complement
 [twoscomplement]: https://en.wikipedia.org/wiki/Two%27s_complement
+[djangoqobject]: https://docs.djangoproject.com/en/dev/ref/models/querysets/#q-objects
+[pandas]: https://stackoverflow.com/a/46054354
 
 <!-- footnotes -->
 
