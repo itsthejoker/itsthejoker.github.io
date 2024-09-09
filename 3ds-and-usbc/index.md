@@ -39,7 +39,7 @@ I've always been a fan of handheld game systems, and today's handheld game platf
 
 My first hand-held console was a teal Gameboy Color in 1996. I loved it to pieces, and some of my favorite gaming memories were spent on the Gameboy Advance and the Gameboy Advance SP. In the years since, I've since refurbished my original Gameboy Advance SP in a fantastic neon green clear shell with a new screen and other upgraded components so that it can live a life of gaming with my brother, but his still relies on the original cable. 
 
-![A neon green Nintendo Gameboy Advance SP.](images/isaacs_gameboy.jpg "I put a lot of hours on this thing back in the day." )
+![A neon green Nintendo Gameboy Advance SP.](images/dells_gameboy.jpg "I put a lot of hours on this thing back in the day." )
 
 But hey, this isn't about the SP, this is about the 3DS. So let's talk about USB-C.
 
