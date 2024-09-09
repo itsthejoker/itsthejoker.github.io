@@ -123,11 +123,44 @@ I ended up settling on five different responses, with each one automatically set
   - Takes in the path you want to redirect to, then tells the browser to go there instead.
 - `FileReponse`
   - Sending files can be kind of a pain, and I realized when working with the dev server that it needed to be able to serve its own static files. The `FileResponse` is mostly for internal use, but is certainly available for others if they need it or want to use it.
-  {{< admonition type=tip title="" >}}
-  Funnily enough, implementing `FileResponse` was where I realized why [a notice that I'd seen before](https://docs.djangoproject.com/en/5.1/ref/contrib/staticfiles/#django.contrib.staticfiles.views.serve) from the Django documentation about not serving static files via the framework was actually there. To properly serve a file, not only does the request have to go through the entirety of the middleware stack twice (once for the request and once for the response), it probably is also insecure just by nature of it existing.
 
-  So, like... maybe don't do that with Spiderweb either.
-  {{< /admonition >}} 
+{{< admonition type=tip title="" >}}
+Funnily enough, implementing `FileResponse` was where I realized why [a notice that I'd seen before](https://docs.djangoproject.com/en/5.1/ref/contrib/staticfiles/#django.contrib.staticfiles.views.serve) from the Django documentation about not serving static files via the framework was actually there. To properly serve a file, not only does the request have to go through the entirety of the middleware stack twice (once for the request and once for the response), it probably is also insecure just by nature of it existing.
+
+So, like... maybe don't do that with Spiderweb either.
+{{< /admonition >}}
+
+# Stuff I Learned
+
+## Security, Databases, & Other Fun Tricks
+
+Not everything was happiness and rainbows; the internet is a dangerous place, after all. Any framework that accepts POST request also needs to be able to protect against [Cross-Site Request Forgery (CSRF)][csrf], which required a lot more research than I had expected. I implemented a naïve version when building the first version of Spiderweb, only to have a coworker point out that my implementation essentially ineffectual at what it was supposed to do.
+
+Hilarious.
+
+Implementing it properly involved first adding in database support so that I could build the session middleware, then finally re-implementing CSRF correctly. For database support, I ended up going with [`peewee`][peewee], a Python-based [Object Relational Mapper (ORM)][orm] for interacting with different common databases like SQLite and Postgres.
+
+{{< admonition type=note title="The Best ORM" >}}
+The best ORM, by far, is actually the one built into Django. Called simply "the Django ORM", this system of interacting with databases is incredibly solid, flexible, and takes the idea of "if you can't model your query with it, there's a bug" to extremes.
+
+However, the ORM is built into Django in such a way that it cannot be easily extricated. It is [technically possible to run the ORM as a standalone project](https://forum.djangoproject.com/t/django-orm-as-a-standalone-library/4971), but it would require downloading and using the entirety of the Django web framework while using Spiderweb, which definitely enters the territory of "...but why?".
+{{< /admonition >}}
+
+After rebuilding CSRF protection the proper way, I moved on to another security feature that is often an afterthought for other systems (until it's suddenly very much needed): [Cross-Origin Resource Sharing (CORS)][cors], a vital part of keeping users safe while allowing for larger and more distributed projects. Though it had been my plan from the beginning to implement everything myself and put my own spin on things, I admitted defeat here; the consequences of having a poor implementation here were too high. I turned to [django-cors-headers][django_cors], a project started in 2013 that has been a trusted staple of many production jobs that I've worked on over the years.
+
+Translating `django-cors-headers` into the language of Spiderweb wasn't an easy task, but it did help me better to understand some of the intricacies of the security layer and, in porting the tests that accompany it to make sure I translated it correctly, I discovered several other small bugs in Spiderweb itself that I was able to fix. Roughly 1/3rd of the total development time went into CORS and CSRF protection alone.
+
+## funnest part
+
+middleware
+
+## takeaways
+
+sometimes python magic is just magic and also the easiest way to build something
+
+zen of python says there should be one obvious way to do it... but not everyone chooses the obvious path, so having multiple ways to do common operations is helpful
+
+it's okay to revel in the fun parts of development — I kept coming back and extending middleware because it was really interesting
 
 
 
@@ -142,7 +175,11 @@ I ended up settling on five different responses, with each one automatically set
 [pep-0333]: https://peps.python.org/pep-0333/
 [minimal_wsgi_example]: https://wsgi.tutorial.codepoint.net/application-interface
 [python1_4]: https://www.python.org/doc/versions/
-[cors]: https://github.com/adamchainz/django-cors-headers/
+[django_cors]: https://github.com/adamchainz/django-cors-headers/
+[csrf]: https://owasp.org/www-community/attacks/csrf
+[peewee]: https://docs.peewee-orm.com/en/latest/peewee/quickstart.html
+[orm]: https://stackoverflow.com/a/1279678
+[cors]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 
 [spiderweb]: https://itsthejoker.github.io/spiderweb
 [spiderweb_qs]: https://itsthejoker.github.io/spiderweb/#/quickstart
@@ -152,4 +189,4 @@ I ended up settling on five different responses, with each one automatically set
 <!-- footnotes -->
 
 [^almost]:
-    I almost made it. All of the core functionality is my own work, but I leaned on [the shoulders of giants][cors] for implementing CORS (Cross-Origin Resource Sharing), as it's really something I did not want to screw up.
+    I almost made it. All of the core functionality is my own work, but I leaned on [the shoulders of giants][django_cors] for implementing [CORS (Cross-Origin Resource Sharing)][cors], as it's really something I did not want to screw up.
