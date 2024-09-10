@@ -150,11 +150,17 @@ After rebuilding CSRF protection the proper way, I moved on to another security 
 
 Translating `django-cors-headers` into the language of Spiderweb wasn't an easy task, but it did help me better to understand some of the intricacies of the security layer and, in porting the tests that accompany it to make sure I translated it correctly, I discovered several other small bugs in Spiderweb itself that I was able to fix. Roughly 1/3rd of the total development time went into CORS and CSRF protection alone.
 
-## funnest part
+## Flexibility in Odd Places
 
-middleware
+As Spiderweb grew, I was continually surprised by how much I could actually implement in the middleware layer. By extension, I was equally surprised with how much logic didn't actually have to be hard-coded into the framework. As both my coworkers and I floated ideas, I kept thinking, "_where would this go... can I put it in middleware? I think I can!_". Ensuring Spiderweb had extensive (and clear) middleware support means that not only can features be turned on and off at will, but also that new features are very easy for the end user to write for their own personal applications.
 
-## takeaways
+I've always known that middleware was powerful, but the sheer amount that it could handle definitely surprised me. I'm very much looking forward to seeing other options for middleware if anyone ends up writing some!
+
+## Takeaways
+
+In working on Spiderweb,
+
+
 
 sometimes python magic is just magic and also the easiest way to build something
 
