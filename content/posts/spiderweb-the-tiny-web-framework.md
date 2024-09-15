@@ -1,7 +1,6 @@
 ---
 title: "Spiderweb: the Tiny Web Framework"
 date: 2024-09-03T16:26:04-04:00
-draft: true
 summary: "I realized that, though it's my day job to use them, I don't know how web frameworks work. So I wrote one."
 categories:
   - projects
@@ -68,7 +67,7 @@ The answer is, surprisingly, "yes!", and I eagerly started building. A few days 
 - HTTP redirects
 - basic middleware for handling requests and responses
 
-I named my little pet project [**Spiderweb**][spiderweb] (a web framework just large enough for a spider), and I sent it off to some friends to get feedback on what I was doing well and what wasn't going well. Out of that feedback, I got two feature requests ([Django-style route declaration][dsrd] and [form validation with Pydantic][pydantic]), so I got  figured out and kept building. Though I'd been putting it off, there was a specific thing that I wanted to make sure I had: [gunicorn support][gunicorn]. Gunicorn is the standard runner for production software for pretty much every project I've ever worked on ([shoutouts to uWSGI though][uwsgi]), so ensuring that my baby framework could interact with it was paramount. 
+I named my little pet project [**Spiderweb**][spiderweb] (a web framework just large enough for a spider), and I sent it off to some friends to get feedback on what I was doing well and what wasn't going well. Out of that feedback, I got two feature requests ([Django-style route declaration][dsrd] and [form validation with Pydantic][pydantic]), so I got that figured out and kept building. Though I'd been putting it off, there was a specific thing that I wanted to make sure I had: [gunicorn support][gunicorn]. Gunicorn is the standard runner for production software for pretty much every project I've ever worked on ([shoutouts to uWSGI though][uwsgi]), so ensuring that my baby framework could interact with it was paramount. 
 
 Gunicorn uses a system called [WSGI][wsgi] (Web Server Gateway Interface) to communicate, so I launched into getting my little framework to speak it. And after poking at it for a while, I had a horrifying realization: there is no way to directly translate `SimpleHTTPServer` to WSGI.
 
@@ -130,11 +129,13 @@ Funnily enough, implementing `FileResponse` was where I realized why [a notice t
 So, like... maybe don't do that with Spiderweb either.
 {{< /admonition >}}
 
+All of the Response classes have a `.render()` function that builds the response into something that can be returned to the browser. This has made extending the Response types with your own very easy, and I'm very happy with how it all came together!
+
 # Stuff I Learned
 
 ## Security, Databases, & Other Fun Tricks
 
-Not everything was happiness and rainbows; the internet is a dangerous place, after all. Any framework that accepts POST request also needs to be able to protect against [Cross-Site Request Forgery (CSRF)][csrf], which required a lot more research than I had expected. I implemented a naïve version when building the first version of Spiderweb, only to have a coworker point out that my implementation essentially ineffectual at what it was supposed to do.
+Not everything was happiness and rainbows; the internet is a dangerous place, after all. Any framework that accepts POST request also needs to be able to protect against [Cross-Site Request Forgery (CSRF)][csrf], which required a lot more research than I had expected. I implemented a naïve version when building the first version of Spiderweb, only to have a coworker point out that my implementation was essentially a complete failure at what it was supposed to do.
 
 Hilarious.
 
@@ -143,7 +144,8 @@ Implementing it properly involved first adding in database support so that I cou
 {{< admonition type=note title="The Best ORM" >}}
 The best ORM, by far, is actually the one built into Django. Called simply "the Django ORM", this system of interacting with databases is incredibly solid, flexible, and takes the idea of "if you can't model your query with it, there's a bug" to extremes.
 
-However, the ORM is built into Django in such a way that it cannot be easily extricated. It is [technically possible to run the ORM as a standalone project](https://forum.djangoproject.com/t/django-orm-as-a-standalone-library/4971), but it would require downloading and using the entirety of the Django web framework while using Spiderweb, which definitely enters the territory of "...but why?".
+However, the ORM is built into Django in such a way that it cannot be easily extricated. It is [technically possible to run the ORM as a standalone project](https://forum.djangoproject.com/t/django-orm-as-a-standalone-library/4971), but it would require downloading the entirety of the Django web framework while using Spiderweb, which definitely [enters the territory of "...but why?"](https://github.com/itsthejoker/spiderdjango).
+
 {{< /admonition >}}
 
 After rebuilding CSRF protection the proper way, I moved on to another security feature that is often an afterthought for other systems (until it's suddenly very much needed): [Cross-Origin Resource Sharing (CORS)][cors], a vital part of keeping users safe while allowing for larger and more distributed projects. Though it had been my plan from the beginning to implement everything myself and put my own spin on things, I admitted defeat here; the consequences of having a poor implementation here were too high. I turned to [django-cors-headers][django_cors], a project started in 2013 that has been a trusted staple of many production jobs that I've worked on over the years.
@@ -158,17 +160,33 @@ I've always known that middleware was powerful, but the sheer amount that it cou
 
 ## Takeaways
 
-In working on Spiderweb,
+In working on Spiderweb, there were a lot of surprises and interesting rabbit holes that I went down while working on the entire system. There were times where I was working on different pieces and thought "wait, it would be really nice if..." or, when working on the documentation, I would start to document a function that seemed like it should be there because it made logical sense to be there (like `app.reverse()` for [getting the urls from the name of the route][app_reverse]). In no particular order, these are some of the things that stood out to me while finishing this project.
 
+### Zen of Python vs Ease of Use
 
+The [Zen of Python][zen] says, among other things:
 
-sometimes python magic is just magic and also the easiest way to build something
+> There should be one-- and preferably only one --obvious way to do it.[^dashes]
 
-zen of python says there should be one obvious way to do it... but not everyone chooses the obvious path, so having multiple ways to do common operations is helpful
+When starting on Spiderweb, I had a very specific idea of how I wanted the framework to be used, but I found multiple areas where it just made logical sense to have different ways of achieving the same goal for ease of use. Different situations called for different uses, which is why Spiderweb ended up with [three different ways to set up routes][spiderweb_routes]. I have a preference, but therre's no need to force a preference onto situations where it makes less sense, especially as applications grow.
 
-it's okay to revel in the fun parts of development — I kept coming back and extending middleware because it was really interesting
+### Sometimes Python Magic really is the easiest way
 
+In spending years working with Django, there are some things that I have always simply ascribed to "Django Magic". Python has its own forms of magic, but the idea that there were some design decisions that just needed to be memorized was always a little annoying. In working on Spiderweb, there were several places where I intuitively leaned on either more obscure or "maybe not quite good practices" areas of Python to accomplish what I needed — for example, finding the base path of the script calling Spiderweb is done by inspecting the call stack and variables in a URL are cast to their final types by building class names and querying `globals()`. This likely seems... questionable... to the outside viewer, but they are decisions that made the most sense at the time and were easy to quickly implement.
 
+That's not to say that these two are examples that should stay in the framework as time goes on; if I end up continuing to support and extend Spiderweb, there are some definite areas for improvement, and these would likely get some intense scrutiny early on. Like many instances of "Django Magic", I'm sure that they're just what made sense at the time as opposed to a focus on the proper way to approach the problem.
+
+### Having Fun is Fun
+
+With many projects, this one included, there is a certain 'slump' period that happens towards the end. So much work has been completed, but it feels like there's so much left to do... and more projects than not die in this stage. With Spiderweb though, I tried to focus on the parts of building that I genuinely found fun to keep me going.
+
+In this case, I really enjoyed working on the middleware; expanding the framework's capabilities in such a modular way was very exciting, and it became almost a game with myself to see how far I could push the functionality without changing anything in the core server. Having this area that I could come back to was incredibly helpful in keeping me moving and focused.
+
+So, in the words of my partner as we talked about what I learned while working on Spiderweb... "fun is fun!"
+
+## Closing
+
+If any of this looks interesting, I encourage you to checkout [Spiderweb][spiderweb] and see if it's the framework for your next project (or if it's just worth tinkering with). If you find some issues, let me know! It's essentially a toy, but like any creator, I'm dying to know what my creation is capable of. May it serve your requests as well as it has served mine!
 
 <!-- links -->
 
@@ -186,13 +204,21 @@ it's okay to revel in the fun parts of development — I kept coming back and ex
 [peewee]: https://docs.peewee-orm.com/en/latest/peewee/quickstart.html
 [orm]: https://stackoverflow.com/a/1279678
 [cors]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+[spiderdjango]: https://example.com
 
 [spiderweb]: https://itsthejoker.github.io/spiderweb
 [spiderweb_qs]: https://itsthejoker.github.io/spiderweb/#/quickstart
+[spiderweb_routes]: https://itsthejoker.github.io/spiderweb/#/routes
 [dsrd]: https://itsthejoker.github.io/spiderweb/#/routes?id=during-instantiation
 [pydantic]: https://itsthejoker.github.io/spiderweb/#/middleware/pydantic
+[app_reverse]:https://itsthejoker.github.io/spiderweb/#/routes?id=finding-routes-again
+[zen]: https://en.wikipedia.org/wiki/Zen_of_Python
+[dashes]: https://bugs.python.org/issue3364
 
 <!-- footnotes -->
 
 [^almost]:
     I almost made it. All of the core functionality is my own work, but I leaned on [the shoulders of giants][django_cors] for implementing [CORS (Cross-Origin Resource Sharing)][cors], as it's really something I did not want to screw up.
+
+[^dashes]:
+    The formatting of the dashes is specifically different as an illustration of there being different ways to format Python code. It's included [as an Easter egg by the author][dashes].
