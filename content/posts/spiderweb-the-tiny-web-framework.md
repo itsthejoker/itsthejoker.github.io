@@ -186,7 +186,7 @@ So, in the words of my partner as we talked about what I learned while working o
 
 ## Closing
 
-If any of this looks interesting, I encourage you to checkout [Spiderweb][spiderweb] and see if it's the framework for your next project (or if it's just worth tinkering with). If you find some issues, let me know! It's essentially a toy, but like any creator, I'm dying to know what my creation is capable of. May it serve your requests as well as it has served mine!
+If any of this looks interesting, I encourage you to check out [Spiderweb][spiderweb] and see if it's the framework for your next project (or if it's just worth tinkering with). If you find some issues, let me know! It's essentially a toy, but like any creator, I'm dying to know what my creation is capable of. May it serve your requests as well as it has served mine!
 
 <!-- links -->
 
