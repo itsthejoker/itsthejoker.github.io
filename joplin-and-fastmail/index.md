@@ -5,6 +5,12 @@
 
 As I continue my quest to slowly cut more and more Google services out of my world, I knew that eventually I would need to break my dependence on Google Docs and Google Keep as a way to keep track of thoughts and writing. Eventually I found, with the help of some friends, a solution that works really well for me and I'd like to share it with you!
 
+{{< admonition type=warning title="Hey, you in the future!" >}}
+FYI, I don't use this the WebDAV backup anymore. As my Joplin data became bigger (>700MB), it became slower and slower to back up. I've switched to the [self-hosted version of Joplin Server](https://buymeacoffee.com/mladcepes/how-host-your-own-joplin-server-a-step-step-guide), and that has fixed the speed issues.
+
+This is still a totally valid option, but I personally did hit the limits of what I thought was reasonable for multi-device syncing. If you're only using one device and just want a backup, this is probably still a great option for you!
+{{< /admonition >}}
+
 ## The Requirements
 
 When looking at what Google Docs and Keep brought for me, it was fairly easy to separate the things I cared about from the things I didn't care about.
@@ -76,3 +82,4 @@ If anything I've written about here sounds interesting, give it a try! You might
 [fastmail_referral]: https://ref.fm/u27731032
 [fastmail_webdav]: https://www.fastmail.help/hc/en-us/articles/1500000280121-About-Fastmail-file-storage
 [typora]: https://typora.io/
+[joplinserver]: https://buymeacoffee.com/mladcepes/how-host-your-own-joplin-server-a-step-step-guide
