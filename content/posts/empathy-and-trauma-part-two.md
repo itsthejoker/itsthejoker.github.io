@@ -1,7 +1,6 @@
 ---
 title: "Empathy and Trauma, Part Two"
 date: 2025-11-23T11:58:27-05:00
-draft: true
 summary: "In volunteering at a children's hospital, the worst thing is not knowing what happens to the people you meet."
 categories:
   - writing
