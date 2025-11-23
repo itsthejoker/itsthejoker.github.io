@@ -16,7 +16,7 @@ tags:
 
 ## Impactful start to the post!
 
-Remember that you can link to other pages with [link]({{< ref "docs/page_name_without_md" >}}). A general markdown link [looks like this][example], and a footnote[^example2] looks like this.
+Remember that you can link to other pages with [link]({{< ref "posts/page_name_without_md" >}}). A general markdown link [looks like this][example], and a footnote[^example2] looks like this.
 
 
 <!-- links -->
