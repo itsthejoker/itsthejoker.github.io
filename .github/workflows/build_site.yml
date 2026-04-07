@@ -39,7 +39,6 @@ jobs:
             # copy the site to the ./sync directory
             j export --notebook joekaufeld.com --format md sync
             echo "should_deploy=true" >> $GITHUB_OUTPUT
-            curl -H prio:low -d "Website deployed!" ${{ secrets.NOTIFY_URL }}
           fi
 
       - name: Setup Hugo
@@ -77,3 +76,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./public
+
+      - name: Notify
+        if: steps.joplin_sync.outputs.should_deploy == 'true'
+        run: curl -H prio:low -d "Website deployed!" ${{ secrets.NOTIFY_URL }}
