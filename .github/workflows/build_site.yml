@@ -1,36 +1,78 @@
-# .github/workflows/gh-pages.yml
-
-name: GitHub Pages
-
+name: check_for_deploy.yml
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
 
 jobs:
-  build-deploy:
+  check-and-deploy:
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+    permissions:
+      actions: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           submodules: true
           fetch-depth: 0
+          clean: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Installing Joplin
+        run: NPM_CONFIG_PREFIX=~/.joplin-bin npm install --loglevel=error -g joplin
+      - name: configure joplin sync
+        id: joplin_sync
+        run: |
+          alias j="$HOME/.joplin-bin/bin/joplin"
+          j config sync.target 9
+          j config sync.9.path "${{ secrets.JOPLIN_SERVER_URL }}"
+          j config sync.9.username "${{ secrets.JOPLIN_USERNAME }}"
+          j config sync.9.password "${{ secrets.JOPLIN_PASSWORD }}"
+          j sync
+          deploy=$(j cat ${{ secrets.JOPLIN_CONFIG_NOTE_ID }} | grep "deploy:" | awk '{print $2}')
+          if [ "$deploy" = "true" ]; then
+            j set ${{ secrets.JOPLIN_CONFIG_NOTE_ID }} body "deploy: false"
+            j sync
+            # clean local sync directory
+            rm -rf sync
+            # copy the site to the ./sync directory
+            j export --notebook joekaufeld.com --format md sync
+            echo "should_deploy=true" >> $GITHUB_OUTPUT
+            curl -H prio:low -d "Website deployed!" ${{ secrets.NOTIFY_URL }}
+          fi
 
       - name: Setup Hugo
+        if: steps.joplin_sync.outputs.should_deploy == 'true'
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "latest"
+          hugo-version: "0.155.3"
           extended: true
 
+      - name: Install dependencies
+        if: steps.joplin_sync.outputs.should_deploy == 'true'
+        run: sudo apt install exiftool -y
+
+      - name: Merge site content
+        if: steps.joplin_sync.outputs.should_deploy == 'true'
+        run: |
+          rsync -avz sync/joekaufeld.com/ content/posts/
+
       - name: Build
+        if: steps.joplin_sync.outputs.should_deploy == 'true'
         run: hugo --minify
+
+      - name: Merge site resources
+        if: steps.joplin_sync.outputs.should_deploy == 'true'
+        run: rsync -avz sync/_resources public/
+
+      - name: Strip EXIF data
+        if: steps.joplin_sync.outputs.should_deploy == 'true'
+        run: exiftool -all= public/_resources/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/master' }}
+        if: steps.joplin_sync.outputs.should_deploy == 'true' && github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages

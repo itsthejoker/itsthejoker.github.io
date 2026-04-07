@@ -13,9 +13,8 @@ tags:
 
 ## Children's Hospitals & Me: Part Two
 
-{{< admonition type=warning title="Content Warning" >}}
-This post deals with **child death**. Do not read if this is a sensitive topic for you.
-{{</admonition>}}
+> [!WARNING] Content Warning
+> This post deals with **child death**. Do not read if this is a sensitive topic for you.
 
 It's been a little over two years since I wrote the [last post on my experiences at the children's hospital]({{< ref "posts/empathy_and_trauma" >}}). I was talking to a friend yesterday about how I felt that maybe it would be a good idea to write a followup now that I've been there for a few years, doing my thing every week.
 

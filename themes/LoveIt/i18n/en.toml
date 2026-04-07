@@ -29,12 +29,6 @@ other = "Category"
 
 [categories]
 other = "Categories"
-
-[single_series]
-other = "Series"
-
-[series]
-other = "Series"
 # === Taxonomy ===
 
 # === Pagination ===
@@ -64,6 +58,12 @@ other = "Your comment ..."
 
 [facebookLanguageCode]
 other = "en_US"
+
+[giscusLang]
+other = "en"
+
+[walineLang]
+other = "en"
 # === partials/comment.html ===
 
 # === partials/assets.html ===
@@ -113,9 +113,6 @@ other = "published on {{ .Date }}"
 [includedInCategories]
 other = "included in {{ .Categories }}"
 
-[includedInSeries]
-other = "Part of {{ .Series }}"
-
 [wordCount]
 one = "One word"
 other = "{{ .Count }} words"
@@ -164,6 +161,9 @@ other = "Abstract"
 [info]
 other = "Info"
 
+[todo]
+other = "Todo"
+
 [tip]
 other = "Tip"
 
@@ -201,4 +201,7 @@ other = "CHANGED"
 
 [deleted]
 other = "DELETED"
+
+[deprecated]
+other = "DEPRECATED"
 # === shortcodes/version.html ===
