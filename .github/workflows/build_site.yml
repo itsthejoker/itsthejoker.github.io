@@ -59,7 +59,7 @@ jobs:
       - name: Merge site content
         if: steps.joplin_sync.outputs.should_deploy == 'true'
         run: |
-          rsync -avz sync/joekaufeld.com content
+          rsync -avz sync/joekaufeld.com/ content
 
       - name: Build
         if: steps.joplin_sync.outputs.should_deploy == 'true'
