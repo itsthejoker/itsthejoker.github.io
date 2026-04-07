@@ -59,7 +59,7 @@ jobs:
       - name: Merge site content
         if: steps.joplin_sync.outputs.should_deploy == 'true'
         run: |
-          rsync -avz sync/joekaufeld.com content/posts/
+          rsync -avz sync/joekaufeld.com content/posts
 
       - name: Build
         if: steps.joplin_sync.outputs.should_deploy == 'true'
@@ -67,7 +67,7 @@ jobs:
 
       - name: Merge site resources
         if: steps.joplin_sync.outputs.should_deploy == 'true'
-        run: rsync -avz sync/_resources public/
+        run: rsync -avz sync/_resources public
 
       - name: Strip EXIF data
         if: steps.joplin_sync.outputs.should_deploy == 'true'
