@@ -79,7 +79,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         if: steps.joplin_sync.outputs.should_deploy == 'true' && github.ref == 'refs/heads/master'
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_PAT }}
           publish_branch: gh-pages
           publish_dir: ./public
 
