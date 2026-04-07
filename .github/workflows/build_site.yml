@@ -40,8 +40,6 @@ jobs:
           if [ "$deploy" = "true" ]; then
             j set ${{ secrets.JOPLIN_CONFIG_NOTE_ID }} body "deploy: false"
             j sync
-            # clean local sync directory
-            rm -rf sync
             # copy the site to the ./sync directory
             j export --notebook joekaufeld.com --format md sync
             echo "should_deploy=true" >> $GITHUB_OUTPUT
@@ -61,7 +59,7 @@ jobs:
       - name: Merge site content
         if: steps.joplin_sync.outputs.should_deploy == 'true'
         run: |
-          rsync -avz sync/joekaufeld.com/ content/posts/
+          rsync -avz sync/joekaufeld.com content/posts/
 
       - name: Build
         if: steps.joplin_sync.outputs.should_deploy == 'true'
