@@ -3,6 +3,11 @@ baseURL = "https://itsthejoker.github.io"
 # Change the default theme to be use when building the site with Hugo
 theme = "LoveIt"
 
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+  series = 'series'
+
 # Menu config
 [menu]
   [[menu.main]]
