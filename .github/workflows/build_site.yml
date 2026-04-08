@@ -65,6 +65,11 @@ jobs:
         if: steps.joplin_sync.outputs.should_deploy == 'true'
         run: hugo --minify
 
+      - name: Clean links
+        if: steps.joplin_sync.outputs.should_deploy == 'true'
+        run: |
+          find . -name "*.html" -exec sed -i 's|href=\.\./\.\./joekaufeld\.com/posts/\([^.]*\)\.md|href=../../posts/\1/|g' {} +
+
       - name: Merge site resources
         if: steps.joplin_sync.outputs.should_deploy == 'true'
         run: rsync -avz sync/_resources public
