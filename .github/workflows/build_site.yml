@@ -34,14 +34,6 @@ jobs:
           j config sync.9.username "${{ secrets.JOPLIN_USERNAME }}"
           j config sync.9.password "${{ secrets.JOPLIN_PASSWORD }}"
           j sync
-          deploy=$(j cat ${{ secrets.JOPLIN_CONFIG_NOTE_ID }} | grep "deploy:" | awk '{print $2}')
-          if [ "$deploy" = "true" ]; then
-            j set ${{ secrets.JOPLIN_CONFIG_NOTE_ID }} body "deploy: false"
-            j sync
-            # copy the site to the ./sync directory
-            j export --notebook joekaufeld.com --format md sync
-            echo "should_deploy=true" >> $GITHUB_OUTPUT
-          fi
 
       - name: Setup Hugo
         if: steps.joplin_sync.outputs.should_deploy == 'true'
@@ -51,39 +43,31 @@ jobs:
           extended: true
 
       - name: Install dependencies
-        if: steps.joplin_sync.outputs.should_deploy == 'true'
         run: sudo apt install exiftool -y
 
       - name: Merge site content
-        if: steps.joplin_sync.outputs.should_deploy == 'true'
-        run: |
-          rsync -avz sync/joekaufeld.com/ content
+        run: rsync -avz sync/joekaufeld.com/ content
 
       - name: Build
-        if: steps.joplin_sync.outputs.should_deploy == 'true'
         run: hugo --minify
 
       - name: Clean links
-        if: steps.joplin_sync.outputs.should_deploy == 'true'
         run: |
           find . -name "*.html" -exec sed -i 's|href=\.\./\.\./joekaufeld\.com/posts/\([^.]*\)\.md|href=../../posts/\1/|g' {} +
 
       - name: Merge site resources
-        if: steps.joplin_sync.outputs.should_deploy == 'true'
         run: rsync -avz sync/_resources public
 
       - name: Strip EXIF data
-        if: steps.joplin_sync.outputs.should_deploy == 'true'
         run: exiftool -all= public/_resources/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
-        if: steps.joplin_sync.outputs.should_deploy == 'true' && github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GH_PAT }}
           publish_branch: gh-pages
           publish_dir: ./public
 
       - name: Notify
-        if: steps.joplin_sync.outputs.should_deploy == 'true'
         run: curl -H prio:low -d "Website deployed!" ${{ secrets.NOTIFY_URL }}
