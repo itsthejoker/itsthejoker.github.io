@@ -1,7 +1,5 @@
 name: build_site.yml
 on:
-  schedule:
-  - cron: '*/30 * * * *'
   workflow_dispatch:
 
 permissions:
