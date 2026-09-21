@@ -36,7 +36,6 @@ jobs:
           j sync
 
       - name: Setup Hugo
-        if: steps.joplin_sync.outputs.should_deploy == 'true'
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: "0.155.3"
