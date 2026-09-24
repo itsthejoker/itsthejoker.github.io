@@ -11,6 +11,15 @@ code {
   [theme=dark] & {
     color: $code-color-dark;
   }
+
+  &.language-art {
+    color: black;
+    line-height: 1;
+
+    [theme=dark] & {
+      color: black;
+    }
+  }
 }
 
 pre {
@@ -101,7 +110,8 @@ code, pre {
     }
   }
 
-  .highlight {
+  .highlight,
+  > pre {
     position: relative;
     max-height: 0;
     overflow-y: hidden;
@@ -174,7 +184,8 @@ code, pre {
       }
     }
 
-    .highlight {
+    .highlight,
+    > pre {
       max-height: 20000px;
       @include details-transition-close;
     }
